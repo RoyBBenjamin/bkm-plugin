@@ -23,25 +23,41 @@ it when the server is first used.
 
 ## Install
 
-**Codex CLI**
+Verified on 8 October 2026 by installing from this repository exactly as below.
+
+**Codex CLI** (verified with codex-cli 0.162.0)
 
 ```bash
 codex plugin marketplace add RoyBBenjamin/bkm-plugin
-codex plugin add bkm
+codex plugin add bkm@bkm
 ```
 
-**Claude Code**
+**Claude Code** (verified)
 
 ```text
 /plugin marketplace add RoyBBenjamin/bkm-plugin
 /plugin install bkm@bkm
 ```
 
-**Cursor, VS Code and other Agent Plugins clients**
+or from a shell: `claude plugin marketplace add RoyBBenjamin/bkm-plugin` then `claude plugin install bkm@bkm`.
 
-Clone this repository and point the client at it from its plugin or marketplace screen; each
-client documents where it looks for plugins. Cursor and VS Code read `plugin.json`, the skill
-under `skills/` and `mcp.json` directly.
+**GitHub Copilot CLI** (verified); VS Code discovers plugins installed this way
+
+```bash
+copilot plugin marketplace add RoyBBenjamin/bkm-plugin
+copilot plugin install bkm@bkm
+```
+
+**VS Code** (from its documentation; not yet run here)
+
+Set `"chat.plugins.enabled": true`, then either run **Chat: Install Plugin From Source** and
+enter `https://github.com/RoyBBenjamin/bkm-plugin`, or add `RoyBBenjamin/bkm-plugin` to
+`"chat.plugins.marketplaces"` and install from the Extensions view (`@agentPlugins`).
+
+**Cursor** (from its documentation; not yet run here)
+
+Cursor reads `plugin.json` at the root of a plugin directory. Clone this repository and add it
+from Cursor's plugin screen, or install once it is listed in the Cursor Marketplace.
 
 ## Connecting the service
 
