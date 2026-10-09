@@ -4,6 +4,7 @@
     "name": "Roy Benjamin",
     "url": "https://github.com/RoyBBenjamin"
   },
+  "description": "Benjamin Knowledge Models: checked probability, statistics and decision calculations following Benjamin and Cornell, as an MCP service with a skill that teaches an agent to use it honestly.",
   "plugins": [
     {
       "name": "bkm",
