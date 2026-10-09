@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "bkm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Benjamin Knowledge Models: checked probability, statistics and decision calculations from Benjamin and Cornell's Probability, Statistics, and Decision for Civil Engineers, as an MCP service with a skill that teaches an agent to use it honestly.",
   "author": {
     "name": "Roy Benjamin",

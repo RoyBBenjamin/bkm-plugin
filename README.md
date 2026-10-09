@@ -1,9 +1,10 @@
 # Benjamin Knowledge Models plugin
 
-This package is maintained under `plugin/` in the Benjamin Knowledge Models repository and, for
-the invited pilot, published at the root of the private
-[RoyBBenjamin/bkm-plugin](https://github.com/RoyBBenjamin/bkm-plugin) repository. Install from the
-private distribution repository; the installing GitHub account must have access to it.
+This package is maintained under `plugin/` in the Benjamin Knowledge Models repository and
+published at the root of the public
+[RoyBBenjamin/bkm-plugin](https://github.com/RoyBBenjamin/bkm-plugin) distribution repository.
+Public package access simplifies installation; it does not make the connected Sidekick service
+public or bypass its invitation, OAuth, entitlement, quota, or billing controls.
 
 One package teaches an AI agent to use the Benjamin Knowledge Models (BKM) service and connects it
 to the invited-pilot Sidekick gateway. It follows the
@@ -22,7 +23,7 @@ What it contains:
 | `.claude-plugin/plugin.json` | The same plugin described in Claude Code's own manifest format |
 
 The plugin never carries a credential. Sign-in and entitlement enforcement belong to BKM Sidekick;
-a compatible client asks the user to connect when the server is first used. Installing this private
+a compatible client asks the user to connect when the server is first used. Installing this public
 package does not itself grant a Sidekick invitation or service access.
 
 ## Notice
@@ -84,3 +85,7 @@ scripts/validate-plugin.py
 
 This validates the manifest and `mcp.json` against the published schemas, every skill against
 the Agent Skills specification, and the marketplace files against the plugin. It runs in CI.
+
+The canonical source repository also verifies that every package-owned file in this distribution
+matches the transformed source material byte for byte and reports one aggregate SHA-256 material
+digest. Distribution-only marketplace and CI controls are allowlisted separately.
