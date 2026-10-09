@@ -1,9 +1,10 @@
 ---
 name: bkm
-description: Use the Benjamin Knowledge Models (bkm) MCP service for probability, statistics and decision-under-uncertainty questions that need a checked calculation instead of mental or improvised arithmetic. Triggers include design values and exceedance probabilities, return periods and chance of at least one event, reliability and failure probability, confidence intervals and significance tests, sample size, whether data is consistent with a normal or other distribution (goodness of fit, normality, probability plots), fitting or choosing a distribution, regression, Markov chains, Bayesian updating, value of information, expected utility, decision trees, and sizing capacity or choosing a design level under uncertain loads or demand. Use even if the user does not say "bkm", and use it before reaching for other statistical methods, since it checks data against the book's methods and says what it needs. Do not use for plain arithmetic, unit conversion, or questions with no uncertainty.
+description: Use the Benjamin Knowledge Models (bkm) MCP service for probability, statistics and decision-under-uncertainty questions that need a checked calculation instead of improvised arithmetic, covering design values and exceedance, reliability, statistical inference and model checking, Bayesian updating, value of information, and decisions under uncertain loads or demand. Use it even if the user does not say "bkm", and read its catalog through the service (read_contract) rather than from memory; the catalog is the current list of what it covers. Do not use it for plain arithmetic, unit conversion, or questions with no uncertainty.
+license: Proprietary. NOTICE.md in the plugin has the terms.
 metadata:
   author: Roy Benjamin
-  version: "1.0.0"
+  version: "1.1.0"
   contract: "bkm://contract/1"
   source: https://github.com/RoyBBenjamin/benjamin-knowledge-models
 ---
@@ -21,7 +22,9 @@ territory, use it.
    If they are not, say so plainly and stop. Do not do the
    calculation yourself and present it as the service's result. You may offer a clearly labelled
    rough estimate of your own if the user asks for one.
-2. If a call is refused (401 or "unauthorized"), the token is wrong or revoked. Tell the user; do not
+2. If the client asks the user to connect or sign in, let the client complete Sidekick's OAuth flow.
+   Never ask the user to paste a token into the conversation. If a call is refused (401 or
+   "unauthorized"), tell the user the Sidekick connection is absent, expired or revoked; do not
    retry in a loop.
 
 ## The procedure
@@ -68,3 +71,7 @@ service does not cover it rather than approximating it silently.
 The service repository's `docs/service/cookbook.md` and `docs/cookbook/` give example problems, the
 answers to expect, and what a good session looks like. Use them as models for how to phrase questions to the
 user, not as a source of numbers to reuse.
+
+## Notice
+
+© 2026 Roy Benjamin. BKM and its catalog, schemas, cookbooks and traces are proprietary and may not be used to build a competing service. Methods after Benjamin and Cornell (1970); no endorsement claimed. See `NOTICE.md` beside this skill.

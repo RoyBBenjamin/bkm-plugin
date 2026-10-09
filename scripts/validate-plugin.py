@@ -72,8 +72,7 @@ def check_manifest() -> dict:
 def check_mcp() -> None:
     path = PLUGIN / "mcp.json"
     if not path.exists():
-        print(f"note  {REL}/mcp.json is absent: the plugin ships the skill only until the hosted MCP"
-              " gateway has a public origin")
+        print(f"note  {REL}/mcp.json is absent: this package does not configure a hosted MCP server")
         return
     mcp = load(path)
     if mcp.get("$schema") != MCP_SCHEMA_ID:
@@ -92,6 +91,21 @@ def check_mcp() -> None:
                 if "Bearer " in str(value) or "token=" in str(value).lower():
                     fail(f"mcp.json server {name!r} appears to embed a secret in {key}")
     ok(f"{REL}/mcp.json carries no credentials and uses HTTPS")
+
+    claude_path = PLUGIN / ".mcp.json"
+    if claude_path.exists():
+        claude = load(claude_path)
+        if set(claude) != {"mcpServers"} or not isinstance(claude["mcpServers"], dict):
+            fail(f"{REL}/.mcp.json must contain only an mcpServers object")
+        for name, server in claude["mcpServers"].items():
+            if not isinstance(server, dict) or server.get("type") != "http":
+                fail(f"{REL}/.mcp.json server {name!r} must use Claude Code's http transport")
+            if not str(server.get("url", "")).startswith("https://"):
+                fail(f"{REL}/.mcp.json server {name!r} must use an https URL")
+            for header in (server.get("headers") or {}):
+                if header.lower() in SECRET_HEADERS:
+                    fail(f"{REL}/.mcp.json server {name!r} embeds a credential header ({header})")
+        ok(f"{REL}/.mcp.json carries no credentials and uses HTTPS")
 
 
 def check_skills(expected_plugin_name: str) -> None:

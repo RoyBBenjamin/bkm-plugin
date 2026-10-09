@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "bkm": {
+      "type": "http",
+      "url": "https://bkm-sidekick-staging-374618043399.us-west1.run.app/v1/mcp"
+    }
+  }
+}

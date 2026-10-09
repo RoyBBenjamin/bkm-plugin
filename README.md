@@ -1,25 +1,33 @@
 # Benjamin Knowledge Models plugin
 
-An agent plugin for the **Benjamin Knowledge Models (BKM)** service: checked probability,
-statistics and decision calculations following Benjamin and Cornell, *Probability, Statistics,
-and Decision for Civil Engineers*. The service answers by explicit calculation with a full
-trace, asks for what it needs rather than guessing, and never supplies a probability, cost or
-utility the question did not state.
+This package is maintained under `plugin/` in the Benjamin Knowledge Models repository and, for
+the invited pilot, published at the root of the private
+[RoyBBenjamin/bkm-plugin](https://github.com/RoyBBenjamin/bkm-plugin) repository. Install from the
+private distribution repository; the installing GitHub account must have access to it.
 
-This repository is the plugin only. It follows [Agent Plugins 1.0](https://agent-plugins.org), so
-one directory installs in Codex, Cursor, GitHub Copilot in VS Code and other clients that read
-`plugin.json`; a Claude Code manifest sits beside it.
+One package teaches an AI agent to use the Benjamin Knowledge Models (BKM) service and connects it
+to the invited-pilot Sidekick gateway. It follows the
+[Agent Plugins 1.0](https://agent-plugins.org) format, so the same directory installs in
+Codex, Cursor, GitHub Copilot in VS Code and other clients that read `plugin.json`, and it
+carries a Claude Code manifest beside it.
+
+What it contains:
 
 | Path | What it is |
 |---|---|
 | `plugin.json` | The Agent Plugins manifest |
 | `skills/bkm/SKILL.md` | The skill: when to reach for BKM, the procedure (read the contract, ask instead of guess, pass raw values), and the rules that keep answers honest. An [Agent Skill](https://agentskills.io) |
-| `mcp.json` | The MCP server entry for the hosted service. Added when the hosted gateway has a public origin; until then connect the service in your client by hand |
-| `.claude-plugin/` | The same plugin in Claude Code's manifest format, with its marketplace file |
-| `.agents/plugins/marketplace.json` | The Codex marketplace file |
+| `mcp.json` | Credential-free Agent Plugins MCP entry for the invited-pilot Sidekick gateway |
+| `.mcp.json` | Credential-free Claude Code MCP entry for the same gateway |
+| `.claude-plugin/plugin.json` | The same plugin described in Claude Code's own manifest format |
 
-The plugin never carries a credential. Sign-in belongs to the hosted gateway; a client asks for
-it when the server is first used.
+The plugin never carries a credential. Sign-in and entitlement enforcement belong to BKM Sidekick;
+a compatible client asks the user to connect when the server is first used. Installing this private
+package does not itself grant a Sidekick invitation or service access.
+
+## Notice
+
+© 2026 Roy Benjamin. BKM and its catalog, schemas, cookbooks and traces are proprietary and may not be used to build a competing service. Methods after Benjamin and Cornell (1970); no endorsement claimed. The full statement is in [`NOTICE.md`](NOTICE.md), which ships with the plugin.
 
 ## Install
 
@@ -59,12 +67,13 @@ enter `https://github.com/RoyBBenjamin/bkm-plugin`, or add `RoyBBenjamin/bkm-plu
 Cursor reads `plugin.json` at the root of a plugin directory. Clone this repository and add it
 from Cursor's plugin screen, or install once it is listed in the Cursor Marketplace.
 
-## Connecting the service
+## Connection and pilot status
 
-Until `mcp.json` is present, add the BKM MCP server to your client with the address and
-credential the service operator gave you (a Streamable HTTP server; in most clients one JSON
-entry with `type`, `url` and, where the client supports it, a credential it stores for you). The
-skill then applies to whichever BKM server the client has.
+The package points at the current Sidekick staging origin. This is a limited invited pilot, not a
+public service or availability promise. Agent Plugins clients read `mcp.json`; Claude Code can read
+`.mcp.json`. OAuth sign-in, account linking and live tool certification remain client-specific. For
+manual and local connection alternatives, see the
+[installation guide](https://github.com/RoyBBenjamin/benjamin-knowledge-models/blob/main/docs/service/install-and-validate.md).
 
 ## Checking the package
 
@@ -73,11 +82,5 @@ pip install jsonschema skills-ref
 scripts/validate-plugin.py
 ```
 
-Validates the manifest and `mcp.json` against the published schemas, the skill against the Agent
-Skills specification, and the marketplace files against the plugin; it refuses any credential
-in `mcp.json`. It runs on every push.
-
-## Source
-
-The plugin is maintained in the service repository and published here. Questions and issues:
-open an issue on this repository.
+This validates the manifest and `mcp.json` against the published schemas, every skill against
+the Agent Skills specification, and the marketplace files against the plugin. It runs in CI.
