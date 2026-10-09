@@ -119,6 +119,14 @@ def check_skills(expected_plugin_name: str) -> None:
 
 def check_marketplaces(manifest: dict) -> None:
     name = manifest["name"]
+    if not (ROOT / ".agents" / "plugins" / "marketplace.json").exists():
+        print("note  no marketplace files here; they live in the published plugin repository")
+        cc = load(PLUGIN / ".claude-plugin" / "plugin.json")
+        for field in ("name", "version", "description"):
+            if cc.get(field) != manifest.get(field):
+                fail(f"{REL}/.claude-plugin/plugin.json {field} differs from {REL}/plugin.json")
+        ok(f"{REL}/.claude-plugin/plugin.json agrees with {REL}/plugin.json")
+        return
     codex = load(ROOT / ".agents" / "plugins" / "marketplace.json")
     entries = [p for p in codex.get("plugins", []) if p.get("name") == name]
     if not entries:
