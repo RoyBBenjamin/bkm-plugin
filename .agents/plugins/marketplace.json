@@ -1,0 +1,20 @@
+{
+  "name": "bkm",
+  "interface": {
+    "displayName": "Benjamin Knowledge Models"
+  },
+  "plugins": [
+    {
+      "name": "bkm",
+      "source": {
+        "source": "local",
+        "path": "."
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

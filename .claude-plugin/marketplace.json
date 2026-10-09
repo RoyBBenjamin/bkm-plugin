@@ -1,0 +1,14 @@
+{
+  "name": "bkm",
+  "owner": {
+    "name": "Roy Benjamin",
+    "url": "https://github.com/RoyBBenjamin"
+  },
+  "plugins": [
+    {
+      "name": "bkm",
+      "source": "./",
+      "description": "Benjamin Knowledge Models: checked probability, statistics and decision calculations from Benjamin and Cornell's Probability, Statistics, and Decision for Civil Engineers, as an MCP service with a skill that teaches an agent to use it honestly."
+    }
+  ]
+}
