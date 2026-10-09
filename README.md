@@ -32,7 +32,54 @@ package does not itself grant a Sidekick invitation or service access.
 
 ## Install
 
-Verified on 8 October 2026 by installing from this repository exactly as below.
+### Ask your agent to do it
+
+Paste this into the client you want to connect:
+
+```text
+Install and verify BKM Sidekick for me from the authoritative public plugin
+distribution at https://github.com/RoyBBenjamin/bkm-plugin.
+
+First identify this exact client, version, and operating system, then use its
+native plugin or marketplace mechanism. Do not guess commands or inherit a
+support claim from another client. Never ask me to paste an API key, password,
+authorization code, access token, or client secret. The plugin contains no
+credential; use Sidekick OAuth. Pause when I must complete browser login,
+consent, restart, workspace approval, or another human-only step, and give me
+one action at a time. Do not change identity-provider settings, enable dynamic
+client registration, or install a local bridge.
+
+Known native routes, to use only when they match the detected client:
+- Codex CLI: `codex plugin marketplace add RoyBBenjamin/bkm-plugin`, then
+  `codex plugin add bkm@bkm`.
+- Claude Code: `/plugin marketplace add RoyBBenjamin/bkm-plugin`, then
+  `/plugin install bkm@bkm`.
+- GitHub Copilot CLI: `copilot plugin marketplace add
+  RoyBBenjamin/bkm-plugin`, then `copilot plugin install bkm@bkm`.
+- ChatGPT Work: guide me through installing BKM Sidekick from the Plugins
+  directory; do not claim you can press installation, approval, or consent
+  controls yourself.
+
+After installation, confirm the server is enabled, complete OAuth, discover
+get_profile, read_contract, assess_formulation, and execute_analysis, and call
+read_contract with kind "catalog". Report installation, authentication, tool
+discovery, and contract access as separate results. Before any quota-bearing
+assessment or calculation, explain the test and ask once for confirmation. If
+anything fails, preserve the bounded error and stop rather than retrying in a
+loop or silently changing configuration.
+```
+
+The agent can usually handle discovery, marketplace setup, installation, restart guidance,
+tool discovery, and read-only verification. The user still controls login, consent,
+workspace policy, and quota-bearing tests. The complete known-answer and refusal sequence is
+in the [installation guide](https://github.com/RoyBBenjamin/benjamin-knowledge-models/blob/main/docs/service/install-and-validate.md).
+
+### Manual commands
+
+Plugin installation was verified on 8 October 2026 using the commands below. Codex CLI
+0.162.0-alpha.2 with public plugin 1.0.2 subsequently completed OAuth and calculation
+certification on 9 October 2026. Installation evidence for another client does not inherit
+that certification.
 
 **Codex CLI** (verified with codex-cli 0.162.0)
 
