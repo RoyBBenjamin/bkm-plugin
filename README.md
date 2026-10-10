@@ -117,9 +117,13 @@ from Cursor's plugin screen, or install once it is listed in the Cursor Marketpl
 
 ## Connection and pilot status
 
-The package points at the current Sidekick staging origin. This is a limited invited pilot, not a
-public service or availability promise. Agent Plugins clients read `mcp.json`; Claude Code can read
-`.mcp.json`. OAuth sign-in, account linking and live tool certification remain client-specific. For
+The package points at the canonical Sidekick origin,
+`https://sidekick.benjaminknowledgemodels.com/v1/mcp`. This is a limited invited pilot, not a
+public availability promise. The underlying Cloud Run URL is deployment plumbing and is not the
+public resource identity. Agent Plugins clients read `mcp.json`; Claude Code can read `.mcp.json`.
+The portable manifest declares OAuth with CIMD preference, exact resource binding, and the minimum
+`mcp:tools` scope; it contains no client secret. OAuth sign-in, account linking and live tool
+certification remain client-specific. For
 manual and local connection alternatives, see the
 [installation guide](https://github.com/RoyBBenjamin/benjamin-knowledge-models/blob/main/docs/service/install-and-validate.md).
 

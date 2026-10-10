@@ -24,6 +24,7 @@ REL = str(PLUGIN.relative_to(ROOT)) if PLUGIN != ROOT else "."
 PLUGIN_SCHEMA_ID = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 MCP_SCHEMA_ID = "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json"
 SECRET_HEADERS = {"authorization", "x-api-key", "api-key", "cookie", "proxy-authorization"}
+CANONICAL_MCP_URL = "https://sidekick.benjaminknowledgemodels.com/v1/mcp"
 
 
 def fail(message: str) -> None:
@@ -90,6 +91,18 @@ def check_mcp() -> None:
             for value in (server.get(key) or {}).values() if isinstance(server.get(key), dict) else (server.get(key) or []):
                 if "Bearer " in str(value) or "token=" in str(value).lower():
                     fail(f"mcp.json server {name!r} appears to embed a secret in {key}")
+        if name == "bkm":
+            auth = server.get("extensions", {}).get("com.openai", {}).get("auth", {})
+            if url != CANONICAL_MCP_URL:
+                fail(f"mcp.json server 'bkm' must use the canonical Sidekick URL {CANONICAL_MCP_URL}")
+            if auth.get("type") != "oauth" or auth.get("client") != {"mode": "cimd"}:
+                fail("mcp.json server 'bkm' must declare OAuth with CIMD preference")
+            if auth.get("resource") != url:
+                fail("mcp.json server 'bkm' OAuth resource must exactly match its MCP URL")
+            if auth.get("baseScopes") != ["mcp:tools"]:
+                fail("mcp.json server 'bkm' must request exactly the mcp:tools base scope")
+            if not str(auth.get("authorizationServerBase", "")).startswith("https://"):
+                fail("mcp.json server 'bkm' authorization server must use HTTPS")
     ok(f"{REL}/mcp.json carries no credentials and uses HTTPS")
 
     claude_path = PLUGIN / ".mcp.json"
