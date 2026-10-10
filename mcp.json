@@ -3,7 +3,22 @@
   "mcpServers": {
     "bkm": {
       "type": "streamable-http",
-      "url": "https://bkm-sidekick-staging-374618043399.us-west1.run.app/v1/mcp"
+      "url": "https://sidekick.benjaminknowledgemodels.com/v1/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "cimd"
+            },
+            "authorizationServerBase": "https://dev-naj0uo4psl3gsv1y.us.auth0.com/",
+            "resource": "https://sidekick.benjaminknowledgemodels.com/v1/mcp",
+            "baseScopes": [
+              "mcp:tools"
+            ]
+          }
+        }
+      }
     }
   }
 }
