@@ -1,0 +1,62 @@
+{
+  "caseId": "fictional-held-spice-lot-salmonella-decision",
+  "asOf": "2026-10-07",
+  "claims": [
+    {
+      "id": "fda-haccp-context",
+      "kind": "SOURCE_REPORTED",
+      "appliesTo": ["hazard-control context", "process-record investigation", "product disposition"],
+      "source": "https://www.fda.gov/food/hazard-analysis-critical-control-point-haccp/haccp-principles-application-guidelines",
+      "statement": "FDA HACCP guidance places microbiological testing within a broader system of preventive controls, verification, corrective action, and records."
+    },
+    {
+      "id": "fda-testing-control-context",
+      "kind": "SOURCE_REPORTED",
+      "appliesTo": ["held-lot scope", "interpretation caution"],
+      "source": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-testing-salmonella-species-human-foods-and-direct-human-contact-animal-foods",
+      "statement": "FDA guidance supports maintaining control while testing and generally does not treat later negative samples as invalidating a confirmed positive."
+    },
+    {
+      "id": "fda-bam-context",
+      "kind": "SOURCE_REPORTED",
+      "appliesTo": ["laboratory-method context only"],
+      "source": "https://www.fda.gov/food/laboratory-methods-food/bacteriological-analytical-manual-bam",
+      "statement": "FDA BAM publishes preferred microbiological laboratory procedures; this recipe does not claim to implement them."
+    },
+    {
+      "id": "sp-204-model",
+      "kind": "SYNTHETIC_FIXTURE",
+      "appliesTo": ["lot", "food", "facility", "states", "actions", "consequences"],
+      "source": "case-data.json",
+      "statement": "SP-204 and its entire decision setting are fictional."
+    },
+    {
+      "id": "sp-204-current-belief",
+      "kind": "SYNTHETIC_FIXTURE",
+      "appliesTo": ["initial no-detection screen", "prior"],
+      "source": "case-data.json#/prior",
+      "statement": "The initial screen and all current-state probabilities were fabricated; the prior is supplied after that fictional result."
+    },
+    {
+      "id": "sp-204-preferences",
+      "kind": "SYNTHETIC_FIXTURE",
+      "appliesTo": ["utilities"],
+      "source": "case-data.json#/utilities",
+      "statement": "All utilities are fabricated dimensionless preference points, not illness estimates, money, or regulatory thresholds."
+    },
+    {
+      "id": "sp-204-observation-models",
+      "kind": "SYNTHETIC_FIXTURE",
+      "appliesTo": ["likelihoods", "acquisition costs"],
+      "source": "case-data.json#/experiments",
+      "statement": "All likelihoods and costs were fabricated and are not test performance, a validated sampling plan, or regulatory guidance."
+    },
+    {
+      "id": "bkm-computation",
+      "kind": "MODEL_DERIVED",
+      "appliesTo": ["posterior probabilities", "expected utilities", "EVPI", "gross and net value of information"],
+      "source": "execute-output.json",
+      "statement": "Numerical results are deterministic consequences of the synthetic fixture under finite_information_acquisition@1."
+    }
+  ]
+}

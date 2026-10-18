@@ -1,0 +1,89 @@
+{
+  "caseId": "fictional-held-spice-lot-salmonella-decision",
+  "question": "For fictional held spice lot SP-204, choose release, continued hold, validated reprocessing, or destruction after an initial no-detection screen, and decide whether expanded rapid sampling, confirmatory culture, or a process-record investigation is worth acquiring first.",
+  "states": [
+    {"id": "SAFE_OR_BELOW_CONCERN", "label": "The lot is uncontaminated or below the defined level of concern"},
+    {"id": "LOCALIZED_CONTAMINATION", "label": "The lot contains spatially localized Salmonella contamination"},
+    {"id": "WIDESPREAD_CONTAMINATION", "label": "The lot contains distributed Salmonella contamination"}
+  ],
+  "prior": {
+    "SAFE_OR_BELOW_CONCERN": "0.7",
+    "LOCALIZED_CONTAMINATION": "0.2",
+    "WIDESPREAD_CONTAMINATION": "0.1"
+  },
+  "actions": [
+    {"id": "RELEASE_LOT", "label": "Release the held lot"},
+    {"id": "CONTINUE_HOLD", "label": "Continue holding the lot without final disposition"},
+    {"id": "VALIDATED_REPROCESS", "label": "Apply the fictional validated reprocessing step and keep the lot controlled"},
+    {"id": "DESTROY_LOT", "label": "Destroy the held lot"}
+  ],
+  "utilities": {
+    "RELEASE_LOT": {
+      "SAFE_OR_BELOW_CONCERN": "100",
+      "LOCALIZED_CONTAMINATION": "-160",
+      "WIDESPREAD_CONTAMINATION": "-300"
+    },
+    "CONTINUE_HOLD": {
+      "SAFE_OR_BELOW_CONCERN": "20",
+      "LOCALIZED_CONTAMINATION": "30",
+      "WIDESPREAD_CONTAMINATION": "35"
+    },
+    "VALIDATED_REPROCESS": {
+      "SAFE_OR_BELOW_CONCERN": "-10",
+      "LOCALIZED_CONTAMINATION": "85",
+      "WIDESPREAD_CONTAMINATION": "70"
+    },
+    "DESTROY_LOT": {
+      "SAFE_OR_BELOW_CONCERN": "-50",
+      "LOCALIZED_CONTAMINATION": "50",
+      "WIDESPREAD_CONTAMINATION": "90"
+    }
+  },
+  "experiments": [
+    {
+      "id": "EXPANDED_RAPID_SAMPLING",
+      "label": "Collect an expanded stratified sample and run the rapid screen",
+      "cost": "4",
+      "observations": [
+        {"id": "DETECTED", "label": "The expanded rapid screen detects Salmonella"},
+        {"id": "NO_DETECTION", "label": "The expanded rapid screen has no detection"},
+        {"id": "INCONCLUSIVE", "label": "The expanded rapid screen is inconclusive"}
+      ],
+      "likelihoods": {
+        "SAFE_OR_BELOW_CONCERN": {"DETECTED": "0.01", "NO_DETECTION": "0.94", "INCONCLUSIVE": "0.05"},
+        "LOCALIZED_CONTAMINATION": {"DETECTED": "0.35", "NO_DETECTION": "0.55", "INCONCLUSIVE": "0.1"},
+        "WIDESPREAD_CONTAMINATION": {"DETECTED": "0.85", "NO_DETECTION": "0.1", "INCONCLUSIVE": "0.05"}
+      }
+    },
+    {
+      "id": "CONFIRMATORY_CULTURE_PLAN",
+      "label": "Collect a larger stratified sample and perform confirmatory culture",
+      "cost": "18",
+      "observations": [
+        {"id": "CONFIRMED", "label": "Culture confirms Salmonella"},
+        {"id": "NOT_FOUND", "label": "Culture does not find Salmonella in the sampled material"},
+        {"id": "INCONCLUSIVE", "label": "Culture is inconclusive"}
+      ],
+      "likelihoods": {
+        "SAFE_OR_BELOW_CONCERN": {"CONFIRMED": "0.002", "NOT_FOUND": "0.968", "INCONCLUSIVE": "0.03"},
+        "LOCALIZED_CONTAMINATION": {"CONFIRMED": "0.7", "NOT_FOUND": "0.25", "INCONCLUSIVE": "0.05"},
+        "WIDESPREAD_CONTAMINATION": {"CONFIRMED": "0.98", "NOT_FOUND": "0.01", "INCONCLUSIVE": "0.01"}
+      }
+    },
+    {
+      "id": "PROCESS_RECORD_INVESTIGATION",
+      "label": "Investigate preventive-control, deviation, supplier, and traceability records",
+      "cost": "3",
+      "observations": [
+        {"id": "CONTROL_FAILURE", "label": "Records support a relevant preventive-control failure"},
+        {"id": "RECORDS_SUPPORT_CONTROL", "label": "Records support effective control without a relevant deviation"},
+        {"id": "UNRESOLVED", "label": "The record investigation is unresolved"}
+      ],
+      "likelihoods": {
+        "SAFE_OR_BELOW_CONCERN": {"CONTROL_FAILURE": "0.05", "RECORDS_SUPPORT_CONTROL": "0.85", "UNRESOLVED": "0.1"},
+        "LOCALIZED_CONTAMINATION": {"CONTROL_FAILURE": "0.6", "RECORDS_SUPPORT_CONTROL": "0.3", "UNRESOLVED": "0.1"},
+        "WIDESPREAD_CONTAMINATION": {"CONTROL_FAILURE": "0.85", "RECORDS_SUPPORT_CONTROL": "0.05", "UNRESOLVED": "0.1"}
+      }
+    }
+  ]
+}

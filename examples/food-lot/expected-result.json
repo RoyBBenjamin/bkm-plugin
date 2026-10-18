@@ -1,0 +1,60 @@
+{
+  "proposalFingerprint": "sha256:07571dc884285bdf30e05d29d8dfb80a4d3d1d34ab50edcee8e20595c0a0615f",
+  "currentDecision": {
+    "preferredActionIds": ["CONTINUE_HOLD"],
+    "expectedUtilities": {
+      "RELEASE_LOT": "8",
+      "CONTINUE_HOLD": "23.5",
+      "VALIDATED_REPROCESS": "17",
+      "DESTROY_LOT": "-16"
+    },
+    "perfectInformationExpectedUtility": "96",
+    "expectedValueOfPerfectInformation": "72.5"
+  },
+  "sampleInformation": {
+    "preferredExperimentIds": ["PROCESS_RECORD_INVESTIGATION"],
+    "experiments": {
+      "EXPANDED_RAPID_SAMPLING": {
+        "preferredActionsByObservation": {
+          "DETECTED": "VALIDATED_REPROCESS",
+          "NO_DETECTION": "RELEASE_LOT",
+          "INCONCLUSIVE": "VALIDATED_REPROCESS"
+        },
+        "expectedUtilityBeforeCost": "58.73",
+        "grossValueOfInformation": "35.23",
+        "acquisitionCost": "4",
+        "netValueOfInformation": "31.23",
+        "expectedUtilityAfterCost": "54.73"
+      },
+      "CONFIRMATORY_CULTURE_PLAN": {
+        "preferredActionsByObservation": {
+          "CONFIRMED": "VALIDATED_REPROCESS",
+          "NOT_FOUND": "RELEASE_LOT",
+          "INCONCLUSIVE": "CONTINUE_HOLD"
+        },
+        "expectedUtilityBeforeCost": "78.961",
+        "grossValueOfInformation": "55.461",
+        "acquisitionCost": "18",
+        "netValueOfInformation": "37.461",
+        "expectedUtilityAfterCost": "60.961"
+      },
+      "PROCESS_RECORD_INVESTIGATION": {
+        "preferredActionsByObservation": {
+          "CONTROL_FAILURE": "VALIDATED_REPROCESS",
+          "RECORDS_SUPPORT_CONTROL": "RELEASE_LOT",
+          "UNRESOLVED": "CONTINUE_HOLD"
+        },
+        "expectedUtilityBeforeCost": "66.55",
+        "grossValueOfInformation": "43.05",
+        "acquisitionCost": "3",
+        "netValueOfInformation": "40.05",
+        "expectedUtilityAfterCost": "63.55"
+      }
+    }
+  },
+  "authorityBoundary": {
+    "evidenceAdmitted": false,
+    "actionAuthorized": false,
+    "modelAdequacyEstablished": false
+  }
+}

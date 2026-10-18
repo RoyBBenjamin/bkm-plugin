@@ -1,0 +1,154 @@
+{
+  "contractVersion": "1.0",
+  "capability": {
+    "requestedName": "finite_information_acquisition",
+    "requestedMeaningVersion": "1",
+    "usedName": "finite_information_acquisition",
+    "usedMeaningVersion": "1",
+    "maturity": "SUPPORTED"
+  },
+  "outcomeKind": "ASSESSMENT",
+  "proposalFingerprint": "sha256:ae2cd1968c24fd65a0036e161c13d0c7880165f1261a283bc75cfc1d9c3ec46e",
+  "summary": "The current decision cannot be computed yet: Every referenced consequence needs an explicit utility or loss value. The value of information cannot be computed yet: Every referenced consequence needs an explicit utility or loss value.",
+  "assessmentDepth": "FAMILY_SPECIFIC",
+  "assessment": {
+    "analyses": {
+      "CURRENT_DECISION": {
+        "analysis": "CURRENT_DECISION",
+        "semanticDisposition": "INSUFFICIENTLY_SPECIFIED",
+        "availability": "EXECUTABLE",
+        "satisfiedRoles": [
+          "KNOWLEDGE_MODEL",
+          "EVIDENCE_SNAPSHOT",
+          "STATES",
+          "PRIOR",
+          "ACTIONS",
+          "CONSEQUENCES",
+          "DECISION_RULE",
+          "NUMERICAL_POLICY",
+          "PROVENANCE"
+        ],
+        "unresolvedRoles": [
+          "UTILITIES"
+        ],
+        "issues": [
+          {
+            "code": "MISSING_UTILITY_VALUES",
+            "affectedAnalysis": "CURRENT_DECISION",
+            "unresolvedRole": "UTILITIES",
+            "message": "Every referenced consequence needs an explicit utility or loss value.",
+            "blocking": true
+          }
+        ],
+        "warnings": [
+          {
+            "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+            "affectedAnalyses": [
+              "CURRENT_DECISION",
+              "SAMPLE_INFORMATION"
+            ],
+            "resultPaths": [
+              "analysisOutcomes.CURRENT_DECISION.result",
+              "analysisOutcomes.SAMPLE_INFORMATION.result"
+            ],
+            "severity": "CAUTION",
+            "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+            "interpretationConsequence": "Every result remains conditional on the supplied model.",
+            "stillMaterial": true
+          }
+        ],
+        "dependencies": [],
+        "eligibleForExecution": false
+      },
+      "SAMPLE_INFORMATION": {
+        "analysis": "SAMPLE_INFORMATION",
+        "semanticDisposition": "INSUFFICIENTLY_SPECIFIED",
+        "availability": "EXECUTABLE",
+        "satisfiedRoles": [
+          "KNOWLEDGE_MODEL",
+          "EVIDENCE_SNAPSHOT",
+          "STATES",
+          "PRIOR",
+          "ACTIONS",
+          "CONSEQUENCES",
+          "DECISION_RULE",
+          "NUMERICAL_POLICY",
+          "PROVENANCE",
+          "EXPERIMENTS",
+          "BASELINE_EXPERIMENT",
+          "COST_TREATMENT"
+        ],
+        "unresolvedRoles": [
+          "UTILITIES"
+        ],
+        "issues": [
+          {
+            "code": "MISSING_UTILITY_VALUES",
+            "affectedAnalysis": "SAMPLE_INFORMATION",
+            "unresolvedRole": "UTILITIES",
+            "message": "Every referenced consequence needs an explicit utility or loss value.",
+            "blocking": true
+          }
+        ],
+        "warnings": [
+          {
+            "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+            "affectedAnalyses": [
+              "CURRENT_DECISION",
+              "SAMPLE_INFORMATION"
+            ],
+            "resultPaths": [
+              "analysisOutcomes.CURRENT_DECISION.result",
+              "analysisOutcomes.SAMPLE_INFORMATION.result"
+            ],
+            "severity": "CAUTION",
+            "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+            "interpretationConsequence": "Every result remains conditional on the supplied model.",
+            "stillMaterial": true
+          }
+        ],
+        "dependencies": [
+          "CURRENT_DECISION"
+        ],
+        "eligibleForExecution": false
+      }
+    },
+    "warnings": [
+      {
+        "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+        "affectedAnalyses": [
+          "CURRENT_DECISION",
+          "SAMPLE_INFORMATION"
+        ],
+        "resultPaths": [
+          "analysisOutcomes.CURRENT_DECISION.result",
+          "analysisOutcomes.SAMPLE_INFORMATION.result"
+        ],
+        "severity": "CAUTION",
+        "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+        "interpretationConsequence": "Every result remains conditional on the supplied model.",
+        "stillMaterial": true
+      }
+    ],
+    "nextQuestion": {
+      "issueCode": "MISSING_UTILITY_VALUES",
+      "affectedAnalysis": "CURRENT_DECISION",
+      "unresolvedRole": "UTILITIES",
+      "text": "How should each possible consequence be valued?",
+      "answerCouldUnblock": [
+        "CURRENT_DECISION",
+        "SAMPLE_INFORMATION"
+      ]
+    }
+  },
+  "diagnostics": [],
+  "limits": [
+    "No evidence was admitted and no action was authorized.",
+    "Every result is conditional on the supplied states, probabilities, observation models, utilities and costs; structural readiness does not establish that they describe the real situation."
+  ],
+  "authorityBoundary": {
+    "evidenceAdmitted": false,
+    "actionAuthorized": false,
+    "modelAdequacyEstablished": false
+  }
+}

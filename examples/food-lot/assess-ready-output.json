@@ -1,0 +1,126 @@
+{
+  "contractVersion": "1.0",
+  "capability": {
+    "requestedName": "finite_information_acquisition",
+    "requestedMeaningVersion": "1",
+    "usedName": "finite_information_acquisition",
+    "usedMeaningVersion": "1",
+    "maturity": "SUPPORTED"
+  },
+  "outcomeKind": "ASSESSMENT",
+  "proposalFingerprint": "sha256:07571dc884285bdf30e05d29d8dfb80a4d3d1d34ab50edcee8e20595c0a0615f",
+  "summary": "The current decision can be computed. The value of information can be computed.",
+  "assessmentDepth": "FAMILY_SPECIFIC",
+  "assessment": {
+    "analyses": {
+      "CURRENT_DECISION": {
+        "analysis": "CURRENT_DECISION",
+        "semanticDisposition": "COMPLETE",
+        "availability": "EXECUTABLE",
+        "satisfiedRoles": [
+          "KNOWLEDGE_MODEL",
+          "EVIDENCE_SNAPSHOT",
+          "STATES",
+          "PRIOR",
+          "ACTIONS",
+          "CONSEQUENCES",
+          "UTILITIES",
+          "DECISION_RULE",
+          "NUMERICAL_POLICY",
+          "PROVENANCE"
+        ],
+        "unresolvedRoles": [],
+        "issues": [],
+        "warnings": [
+          {
+            "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+            "affectedAnalyses": [
+              "CURRENT_DECISION",
+              "SAMPLE_INFORMATION"
+            ],
+            "resultPaths": [
+              "analysisOutcomes.CURRENT_DECISION.result",
+              "analysisOutcomes.SAMPLE_INFORMATION.result"
+            ],
+            "severity": "CAUTION",
+            "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+            "interpretationConsequence": "Every result remains conditional on the supplied model.",
+            "stillMaterial": true
+          }
+        ],
+        "dependencies": [],
+        "eligibleForExecution": true
+      },
+      "SAMPLE_INFORMATION": {
+        "analysis": "SAMPLE_INFORMATION",
+        "semanticDisposition": "COMPLETE",
+        "availability": "EXECUTABLE",
+        "satisfiedRoles": [
+          "KNOWLEDGE_MODEL",
+          "EVIDENCE_SNAPSHOT",
+          "STATES",
+          "PRIOR",
+          "ACTIONS",
+          "CONSEQUENCES",
+          "UTILITIES",
+          "DECISION_RULE",
+          "NUMERICAL_POLICY",
+          "PROVENANCE",
+          "EXPERIMENTS",
+          "BASELINE_EXPERIMENT",
+          "COST_TREATMENT"
+        ],
+        "unresolvedRoles": [],
+        "issues": [],
+        "warnings": [
+          {
+            "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+            "affectedAnalyses": [
+              "CURRENT_DECISION",
+              "SAMPLE_INFORMATION"
+            ],
+            "resultPaths": [
+              "analysisOutcomes.CURRENT_DECISION.result",
+              "analysisOutcomes.SAMPLE_INFORMATION.result"
+            ],
+            "severity": "CAUTION",
+            "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+            "interpretationConsequence": "Every result remains conditional on the supplied model.",
+            "stillMaterial": true
+          }
+        ],
+        "dependencies": [
+          "CURRENT_DECISION"
+        ],
+        "eligibleForExecution": true
+      }
+    },
+    "warnings": [
+      {
+        "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+        "affectedAnalyses": [
+          "CURRENT_DECISION",
+          "SAMPLE_INFORMATION"
+        ],
+        "resultPaths": [
+          "analysisOutcomes.CURRENT_DECISION.result",
+          "analysisOutcomes.SAMPLE_INFORMATION.result"
+        ],
+        "severity": "CAUTION",
+        "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+        "interpretationConsequence": "Every result remains conditional on the supplied model.",
+        "stillMaterial": true
+      }
+    ]
+  },
+  "diagnostics": [],
+  "limits": [
+    "No evidence was admitted and no action was authorized.",
+    "Every result is conditional on the supplied states, probabilities, observation models, utilities and costs; structural readiness does not establish that they describe the real situation."
+  ],
+  "authorityBoundary": {
+    "evidenceAdmitted": false,
+    "actionAuthorized": false,
+    "modelAdequacyEstablished": false
+  }
+}

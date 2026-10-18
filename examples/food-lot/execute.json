@@ -1,0 +1,682 @@
+{
+  "operation": "execute_analysis",
+  "contractVersion": "1.0",
+  "capability": {
+    "name": "finite_information_acquisition",
+    "meaningVersion": "1"
+  },
+  "proposal": {
+    "proposalId": "cookbook-fictional-food-lot-sp-204-1",
+    "questionAndIntendedUse": "For fictional held spice lot SP-204, choose release, continued hold, validated reprocessing, or destruction after an initial no-detection screen, and decide whether expanded rapid sampling, confirmatory culture, or a process-record investigation is worth acquiring first.",
+    "analysisTime": "BEFORE_OBSERVATION",
+    "knowledgeModel": {
+      "modelId": "fictional-held-spice-lot-salmonella-decision",
+      "version": "1",
+      "provenanceId": "synthetic-model"
+    },
+    "evidenceSnapshot": {
+      "snapshotId": "sp-204-after-initial-no-detection-1",
+      "temporalStance": "NO_EXPERIMENT_RESULT_OBSERVED",
+      "provenanceId": "synthetic-current-belief",
+      "description": "The prior is a synthetic summary after one initial no-detection screen. The lot remains under control, and no outcome from the three proposed investigations has been observed."
+    },
+    "requestedAnalyses": [
+      "CURRENT_DECISION",
+      "SAMPLE_INFORMATION"
+    ],
+    "states": [
+      {
+        "id": "SAFE_OR_BELOW_CONCERN",
+        "label": "The lot is uncontaminated or below the defined level of concern",
+        "provenanceId": "synthetic-model"
+      },
+      {
+        "id": "LOCALIZED_CONTAMINATION",
+        "label": "The lot contains spatially localized Salmonella contamination",
+        "provenanceId": "synthetic-model"
+      },
+      {
+        "id": "WIDESPREAD_CONTAMINATION",
+        "label": "The lot contains distributed Salmonella contamination",
+        "provenanceId": "synthetic-model"
+      }
+    ],
+    "prior": [
+      {
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "probability": "0.7",
+        "provenanceId": "synthetic-current-belief"
+      },
+      {
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "probability": "0.2",
+        "provenanceId": "synthetic-current-belief"
+      },
+      {
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "probability": "0.1",
+        "provenanceId": "synthetic-current-belief"
+      }
+    ],
+    "actions": [
+      {
+        "id": "RELEASE_LOT",
+        "label": "Release the held lot",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "id": "CONTINUE_HOLD",
+        "label": "Continue holding the lot without final disposition",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "id": "VALIDATED_REPROCESS",
+        "label": "Apply the fictional validated reprocessing step and keep the lot controlled",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "id": "DESTROY_LOT",
+        "label": "Destroy the held lot",
+        "provenanceId": "synthetic-preferences"
+      }
+    ],
+    "consequences": [
+      {
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "label": "Release the held lot when The lot is uncontaminated or below the defined level of concern",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "label": "Release the held lot when The lot contains spatially localized Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "label": "Release the held lot when The lot contains distributed Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "label": "Continue holding the lot without final disposition when The lot is uncontaminated or below the defined level of concern",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "label": "Continue holding the lot without final disposition when The lot contains spatially localized Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "label": "Continue holding the lot without final disposition when The lot contains distributed Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "label": "Apply the fictional validated reprocessing step and keep the lot controlled when The lot is uncontaminated or below the defined level of concern",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "label": "Apply the fictional validated reprocessing step and keep the lot controlled when The lot contains spatially localized Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "label": "Apply the fictional validated reprocessing step and keep the lot controlled when The lot contains distributed Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "label": "Destroy the held lot when The lot is uncontaminated or below the defined level of concern",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "label": "Destroy the held lot when The lot contains spatially localized Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "label": "Destroy the held lot when The lot contains distributed Salmonella contamination",
+        "provenanceId": "synthetic-preferences"
+      }
+    ],
+    "utilities": [
+      {
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utility": "100",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utility": "-160",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utility": "-300",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utility": "20",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utility": "30",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utility": "35",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utility": "-10",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utility": "85",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utility": "70",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utility": "-50",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utility": "50",
+        "provenanceId": "synthetic-preferences"
+      },
+      {
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utility": "90",
+        "provenanceId": "synthetic-preferences"
+      }
+    ],
+    "decisionRule": "MAXIMIZE_EXPECTED_UTILITY",
+    "costTreatment": "ADDITIVE_UTILITY_DECREMENT",
+    "experiments": [
+      {
+        "id": "CURRENT_INFORMATION",
+        "label": "Act using current information after the initial screen",
+        "kind": "NO_NEW_INFORMATION",
+        "possibleObservations": [
+          {
+            "id": "NONE",
+            "label": "No new observation",
+            "provenanceId": "synthetic-current-belief"
+          }
+        ],
+        "likelihoods": [
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "NONE",
+            "probability": "1",
+            "provenanceId": "synthetic-current-belief"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "NONE",
+            "probability": "1",
+            "provenanceId": "synthetic-current-belief"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "NONE",
+            "probability": "1",
+            "provenanceId": "synthetic-current-belief"
+          }
+        ],
+        "acquisitionCost": "0",
+        "outcomeSemantics": "HYPOTHETICAL_OBSERVATION",
+        "availableActionsByObservation": [
+          {
+            "observationId": "NONE",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          }
+        ],
+        "provenanceId": "synthetic-current-belief"
+      },
+      {
+        "id": "EXPANDED_RAPID_SAMPLING",
+        "label": "Collect an expanded stratified sample and run the rapid screen",
+        "kind": "ACQUIRE_INFORMATION",
+        "possibleObservations": [
+          {
+            "id": "DETECTED",
+            "label": "The expanded rapid screen detects Salmonella",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "id": "NO_DETECTION",
+            "label": "The expanded rapid screen has no detection",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "id": "INCONCLUSIVE",
+            "label": "The expanded rapid screen is inconclusive",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          }
+        ],
+        "likelihoods": [
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "DETECTED",
+            "probability": "0.01",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "NO_DETECTION",
+            "probability": "0.94",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "INCONCLUSIVE",
+            "probability": "0.05",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "DETECTED",
+            "probability": "0.35",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "NO_DETECTION",
+            "probability": "0.55",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "INCONCLUSIVE",
+            "probability": "0.1",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "DETECTED",
+            "probability": "0.85",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "NO_DETECTION",
+            "probability": "0.1",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "INCONCLUSIVE",
+            "probability": "0.05",
+            "provenanceId": "synthetic-expanded-rapid-sampling"
+          }
+        ],
+        "acquisitionCost": "4",
+        "outcomeSemantics": "HYPOTHETICAL_OBSERVATION",
+        "availableActionsByObservation": [
+          {
+            "observationId": "DETECTED",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          },
+          {
+            "observationId": "NO_DETECTION",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          },
+          {
+            "observationId": "INCONCLUSIVE",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          }
+        ],
+        "provenanceId": "synthetic-expanded-rapid-sampling"
+      },
+      {
+        "id": "CONFIRMATORY_CULTURE_PLAN",
+        "label": "Collect a larger stratified sample and perform confirmatory culture",
+        "kind": "ACQUIRE_INFORMATION",
+        "possibleObservations": [
+          {
+            "id": "CONFIRMED",
+            "label": "Culture confirms Salmonella",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "id": "NOT_FOUND",
+            "label": "Culture does not find Salmonella in the sampled material",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "id": "INCONCLUSIVE",
+            "label": "Culture is inconclusive",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          }
+        ],
+        "likelihoods": [
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "CONFIRMED",
+            "probability": "0.002",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "NOT_FOUND",
+            "probability": "0.968",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "INCONCLUSIVE",
+            "probability": "0.03",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "CONFIRMED",
+            "probability": "0.7",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "NOT_FOUND",
+            "probability": "0.25",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "INCONCLUSIVE",
+            "probability": "0.05",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "CONFIRMED",
+            "probability": "0.98",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "NOT_FOUND",
+            "probability": "0.01",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "INCONCLUSIVE",
+            "probability": "0.01",
+            "provenanceId": "synthetic-confirmatory-culture-plan"
+          }
+        ],
+        "acquisitionCost": "18",
+        "outcomeSemantics": "HYPOTHETICAL_OBSERVATION",
+        "availableActionsByObservation": [
+          {
+            "observationId": "CONFIRMED",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          },
+          {
+            "observationId": "NOT_FOUND",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          },
+          {
+            "observationId": "INCONCLUSIVE",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          }
+        ],
+        "provenanceId": "synthetic-confirmatory-culture-plan"
+      },
+      {
+        "id": "PROCESS_RECORD_INVESTIGATION",
+        "label": "Investigate preventive-control, deviation, supplier, and traceability records",
+        "kind": "ACQUIRE_INFORMATION",
+        "possibleObservations": [
+          {
+            "id": "CONTROL_FAILURE",
+            "label": "Records support a relevant preventive-control failure",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "id": "RECORDS_SUPPORT_CONTROL",
+            "label": "Records support effective control without a relevant deviation",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "id": "UNRESOLVED",
+            "label": "The record investigation is unresolved",
+            "provenanceId": "synthetic-process-record-investigation"
+          }
+        ],
+        "likelihoods": [
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "CONTROL_FAILURE",
+            "probability": "0.05",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "RECORDS_SUPPORT_CONTROL",
+            "probability": "0.85",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "SAFE_OR_BELOW_CONCERN",
+            "observationId": "UNRESOLVED",
+            "probability": "0.1",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "CONTROL_FAILURE",
+            "probability": "0.6",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "RECORDS_SUPPORT_CONTROL",
+            "probability": "0.3",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "LOCALIZED_CONTAMINATION",
+            "observationId": "UNRESOLVED",
+            "probability": "0.1",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "CONTROL_FAILURE",
+            "probability": "0.85",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "RECORDS_SUPPORT_CONTROL",
+            "probability": "0.05",
+            "provenanceId": "synthetic-process-record-investigation"
+          },
+          {
+            "stateId": "WIDESPREAD_CONTAMINATION",
+            "observationId": "UNRESOLVED",
+            "probability": "0.1",
+            "provenanceId": "synthetic-process-record-investigation"
+          }
+        ],
+        "acquisitionCost": "3",
+        "outcomeSemantics": "HYPOTHETICAL_OBSERVATION",
+        "availableActionsByObservation": [
+          {
+            "observationId": "CONTROL_FAILURE",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          },
+          {
+            "observationId": "RECORDS_SUPPORT_CONTROL",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          },
+          {
+            "observationId": "UNRESOLVED",
+            "actionIds": [
+              "RELEASE_LOT",
+              "CONTINUE_HOLD",
+              "VALIDATED_REPROCESS",
+              "DESTROY_LOT"
+            ]
+          }
+        ],
+        "provenanceId": "synthetic-process-record-investigation"
+      }
+    ],
+    "baselineExperimentId": "CURRENT_INFORMATION",
+    "numericalPolicy": {
+      "arithmeticRegime": "DECIMAL",
+      "precision": 34,
+      "roundingMode": "HALF_EVEN",
+      "probabilityTolerance": "0.000000000000000000000000000001"
+    },
+    "provenanceRecords": [
+      {
+        "id": "fda-haccp-context",
+        "origin": "SOURCE_STATED",
+        "sourceLabel": "FDA HACCP Principles and Application Guidelines",
+        "locator": "https://www.fda.gov/food/hazard-analysis-critical-control-point-haccp/haccp-principles-application-guidelines",
+        "notes": "Supports hazard analysis, preventive controls, corrective action, verification, and record review; supplies none of this fixture's numbers."
+      },
+      {
+        "id": "fda-salmonella-testing-context",
+        "origin": "SOURCE_STATED",
+        "sourceLabel": "FDA guidance for industry on Salmonella testing",
+        "locator": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-testing-salmonella-species-human-foods-and-direct-human-contact-animal-foods",
+        "notes": "Supports maintaining control while testing and not invalidating a confirmed positive merely because later samples are negative; supplies none of this fixture's numbers."
+      },
+      {
+        "id": "fda-bam-context",
+        "origin": "SOURCE_STATED",
+        "sourceLabel": "FDA Bacteriological Analytical Manual",
+        "locator": "https://www.fda.gov/food/laboratory-methods-food/bacteriological-analytical-manual-bam",
+        "notes": "Provides official laboratory-method context only; this fixture does not claim to implement a BAM sampling plan or method."
+      },
+      {
+        "id": "synthetic-model",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional SP-204 lot model",
+        "notes": "Fictional educational model; no real food, facility, lot, result, firm, or consumer exposure."
+      },
+      {
+        "id": "synthetic-current-belief",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional posterior after an initial no-detection screen",
+        "notes": "Synthetic probabilities; the initial no-detection does not establish that contamination is absent."
+      },
+      {
+        "id": "synthetic-preferences",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional lot-disposition utilities",
+        "notes": "Synthetic utility points, not illness estimates, money, regulatory thresholds, or elicited preferences."
+      },
+      {
+        "id": "synthetic-expanded-rapid-sampling",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional Collect an expanded stratified sample and run the rapid screen observation model",
+        "notes": "Synthetic likelihoods and additive utility cost; not test performance, a validated sampling plan, or regulatory guidance."
+      },
+      {
+        "id": "synthetic-confirmatory-culture-plan",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional Collect a larger stratified sample and perform confirmatory culture observation model",
+        "notes": "Synthetic likelihoods and additive utility cost; not test performance, a validated sampling plan, or regulatory guidance."
+      },
+      {
+        "id": "synthetic-process-record-investigation",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional Investigate preventive-control, deviation, supplier, and traceability records observation model",
+        "notes": "Synthetic likelihoods and additive utility cost; not test performance, a validated sampling plan, or regulatory guidance."
+      }
+    ]
+  },
+  "analysesToExecute": [
+    "CURRENT_DECISION",
+    "SAMPLE_INFORMATION"
+  ]
+}

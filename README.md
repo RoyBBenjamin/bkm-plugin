@@ -1,30 +1,76 @@
-# Benjamin Knowledge Models plugin
+# BKM: checked probability and decision math for your AI agent
 
-This package is maintained under `plugin/` in the Benjamin Knowledge Models repository and
-published at the root of the public
-[RoyBBenjamin/bkm-plugin](https://github.com/RoyBBenjamin/bkm-plugin) distribution repository.
-Public package access simplifies installation; it does not make the connected Sidekick service
-public or bypass its invitation, OAuth, entitlement, quota, or billing controls.
+Ask an AI whether a food lot is safe to release after a negative test, and it will often say yes.
+That answer is wrong in a way that matters: a test that found nothing is not proof that nothing
+is there.
 
-One package teaches an AI agent to use the Benjamin Knowledge Models (BKM) service and connects it
-to the invited-pilot Sidekick gateway. It follows the
-[Agent Plugins 1.0](https://agent-plugins.org) format, so the same directory installs in
-Codex, Cursor, GitHub Copilot in VS Code and other clients that read `plugin.json`, and it
-carries a Claude Code manifest beside it.
+**Benjamin Knowledge Models (BKM)** gives your agent a calculator it can't bluff with. When a
+question involves uncertainty (risk, reliability, test results, design levels, or whether more
+information is worth buying), the agent hands it to BKM. BKM does three things a language model
+on its own does not:
 
-What it contains:
+- **It asks instead of guessing.** If a probability, cost or consequence is missing, BKM returns
+  the question your agent should ask you. It never invents an input.
+- **It calculates exactly.** Same inputs, same answer, every time, with the full calculation
+  trace.
+- **It says what the answer does not prove.** Every result carries its assumptions, warnings and
+  limits.
+
+The mathematics follows Jack R. Benjamin and C. Allin Cornell, *Probability, Statistics, and
+Decision for Civil Engineers* (1970), the standard text on reasoning under uncertainty in
+engineering.
+
+## See it on one question
+
+> *"A held spice lot passed its first microbiological screen. Should we release it, keep holding
+> it, reprocess it, or destroy it? And is another test worth paying for first?"*
+
+With BKM connected, the agent first asks for what it doesn't know: how each outcome should be
+valued. Then it calculates. In this worked example (fictional lot, synthetic teaching numbers):
+
+| Question | BKM's answer |
+|---|---|
+| Best action right now | **Keep holding.** The negative screen leaves real contamination risk. |
+| What would perfect information be worth? | 72.5 on the case's utility scale |
+| Best next step | **Check the process records** (net value 40.05), ahead of a confirmatory culture (37.46) or more rapid sampling (31.23) |
+
+A generic AI tends to answer "the test was negative, release it." BKM shows why that's the wrong
+question, and which evidence is worth buying next. The full worked case, with every input and
+output, is in [`examples/food-lot/`](examples/food-lot/README.md) in this package, together with a
+script that recomputes every number independently.
+
+## What BKM covers
+
+Distributions and design levels (normal, lognormal, gamma, extreme-value and more), reliability
+and exceedance, Bayesian updating, confidence limits and significance tests, model checking
+(chi-square, Kolmogorov–Smirnov), decision trees, expected utility, and the value of
+information. The live catalog is always available from the service itself (`read_contract`).
+
+## Get started
+
+Getting started is easy and free. BKM runs as a hosted service, **BKM Sidekick**, at
+`https://sidekick.benjaminknowledgemodels.com/v1/mcp`. Install the plugin, sign in when your
+client asks, and new accounts start on the free Explorer plan with
+100 work units a day. Reading the contract is free; assessing a formulation costs 1 unit, and a
+calculation with one analysis about 6, so the free plan covers roughly 15 calculations a day. The plugin itself contains no credential; you
+sign in through Sidekick's own OAuth flow, and you are never asked to paste a key or password.
+Install commands for Claude Code, Codex, GitHub Copilot, VS Code and Cursor are below.
+
+What's in the package:
 
 | Path | What it is |
 |---|---|
-| `plugin.json` | The Agent Plugins manifest |
-| `skills/bkm/SKILL.md` | The skill: when to reach for BKM, the procedure (read the contract, ask instead of guess, pass raw values), and the rules that keep answers honest. An [Agent Skill](https://agentskills.io) |
-| `mcp.json` | Credential-free Agent Plugins MCP entry for the invited-pilot Sidekick gateway |
-| `.mcp.json` | Credential-free Claude Code MCP entry for the same gateway |
-| `.claude-plugin/plugin.json` | The same plugin described in Claude Code's own manifest format |
+| `skills/bkm/SKILL.md` | The skill: when to reach for BKM, how to formulate a question, and the rules that keep answers honest |
+| `.mcp.json` | The Claude Code connection to Sidekick (no credentials) |
+| `mcp.json` | The same connection for Agent Plugins clients |
+| `plugin.json`, `.claude-plugin/plugin.json` | Manifests for Agent Plugins clients and Claude Code |
+| `examples/food-lot/` | The worked case above: inputs, BKM's responses, and an independent verifier |
 
-The plugin never carries a credential. Sign-in and entitlement enforcement belong to BKM Sidekick;
-a compatible client asks the user to connect when the server is first used. Installing this public
-package does not itself grant a Sidekick invitation or service access.
+**Data and privacy.** When your agent calls BKM, it sends Sidekick the problem it formulated and
+gets back the calculation. Sidekick processes your problem in memory and does not keep it by
+default. Sidekick's [privacy notice](https://sidekick.benjaminknowledgemodels.com/privacy) says what it
+does store and for how long, and its [terms](https://sidekick.benjaminknowledgemodels.com/terms)
+govern use of the service.
 
 ## Notice
 
@@ -71,8 +117,7 @@ loop or silently changing configuration.
 
 The agent can usually handle discovery, marketplace setup, installation, restart guidance,
 tool discovery, and read-only verification. The user still controls login, consent,
-workspace policy, and quota-bearing tests. The complete known-answer and refusal sequence is
-in the [installation guide](https://github.com/RoyBBenjamin/benjamin-knowledge-models/blob/main/docs/service/install-and-validate.md).
+workspace policy, and quota-bearing tests.
 
 ### Manual commands
 
@@ -104,28 +149,24 @@ copilot plugin marketplace add RoyBBenjamin/bkm-plugin
 copilot plugin install bkm@bkm
 ```
 
-**VS Code** (from its documentation; not yet run here)
+**VS Code** (from its documentation)
 
 Set `"chat.plugins.enabled": true`, then either run **Chat: Install Plugin From Source** and
 enter `https://github.com/RoyBBenjamin/bkm-plugin`, or add `RoyBBenjamin/bkm-plugin` to
 `"chat.plugins.marketplaces"` and install from the Extensions view (`@agentPlugins`).
 
-**Cursor** (from its documentation; not yet run here)
+**Cursor** (from its documentation)
 
 Cursor reads `plugin.json` at the root of a plugin directory. Clone this repository and add it
 from Cursor's plugin screen, or install once it is listed in the Cursor Marketplace.
 
-## Connection and pilot status
+## Connection
 
 The package points at the canonical Sidekick origin,
-`https://sidekick.benjaminknowledgemodels.com/v1/mcp`. This is a limited invited pilot, not a
-public availability promise. The underlying Cloud Run URL is deployment plumbing and is not the
-public resource identity. Agent Plugins clients read `mcp.json`; Claude Code can read `.mcp.json`.
-The portable manifest declares OAuth with CIMD preference, exact resource binding, and the minimum
-`mcp:tools` scope; it contains no client secret. OAuth sign-in, account linking and live tool
-certification remain client-specific. For
-manual and local connection alternatives, see the
-[installation guide](https://github.com/RoyBBenjamin/benjamin-knowledge-models/blob/main/docs/service/install-and-validate.md).
+`https://sidekick.benjaminknowledgemodels.com/v1/mcp`. Agent Plugins clients read `mcp.json`;
+Claude Code reads `.mcp.json`. The portable manifest declares OAuth with CIMD preference, exact
+resource binding, and the minimum `mcp:tools` scope; it contains no client secret. OAuth sign-in
+and account linking can differ slightly between clients.
 
 ## Checking the package
 

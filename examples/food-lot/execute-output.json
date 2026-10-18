@@ -1,0 +1,2723 @@
+{
+  "contractVersion": "1.0",
+  "capability": {
+    "requestedName": "finite_information_acquisition",
+    "requestedMeaningVersion": "1",
+    "usedName": "finite_information_acquisition",
+    "usedMeaningVersion": "1",
+    "maturity": "SUPPORTED"
+  },
+  "outcomeKind": "EXECUTION",
+  "proposalFingerprint": "sha256:07571dc884285bdf30e05d29d8dfb80a4d3d1d34ab50edcee8e20595c0a0615f",
+  "assessmentDepth": "FAMILY_SPECIFIC",
+  "currentAssessment": {
+    "analyses": {
+      "CURRENT_DECISION": {
+        "analysis": "CURRENT_DECISION",
+        "semanticDisposition": "COMPLETE",
+        "availability": "EXECUTABLE",
+        "satisfiedRoles": [
+          "KNOWLEDGE_MODEL",
+          "EVIDENCE_SNAPSHOT",
+          "STATES",
+          "PRIOR",
+          "ACTIONS",
+          "CONSEQUENCES",
+          "UTILITIES",
+          "DECISION_RULE",
+          "NUMERICAL_POLICY",
+          "PROVENANCE"
+        ],
+        "unresolvedRoles": [],
+        "issues": [],
+        "warnings": [
+          {
+            "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+            "affectedAnalyses": [
+              "CURRENT_DECISION",
+              "SAMPLE_INFORMATION"
+            ],
+            "resultPaths": [
+              "analysisOutcomes.CURRENT_DECISION.result",
+              "analysisOutcomes.SAMPLE_INFORMATION.result"
+            ],
+            "severity": "CAUTION",
+            "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+            "interpretationConsequence": "Every result remains conditional on the supplied model.",
+            "stillMaterial": true
+          }
+        ],
+        "dependencies": [],
+        "eligibleForExecution": true
+      },
+      "SAMPLE_INFORMATION": {
+        "analysis": "SAMPLE_INFORMATION",
+        "semanticDisposition": "COMPLETE",
+        "availability": "EXECUTABLE",
+        "satisfiedRoles": [
+          "KNOWLEDGE_MODEL",
+          "EVIDENCE_SNAPSHOT",
+          "STATES",
+          "PRIOR",
+          "ACTIONS",
+          "CONSEQUENCES",
+          "UTILITIES",
+          "DECISION_RULE",
+          "NUMERICAL_POLICY",
+          "PROVENANCE",
+          "EXPERIMENTS",
+          "BASELINE_EXPERIMENT",
+          "COST_TREATMENT"
+        ],
+        "unresolvedRoles": [],
+        "issues": [],
+        "warnings": [
+          {
+            "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+            "affectedAnalyses": [
+              "CURRENT_DECISION",
+              "SAMPLE_INFORMATION"
+            ],
+            "resultPaths": [
+              "analysisOutcomes.CURRENT_DECISION.result",
+              "analysisOutcomes.SAMPLE_INFORMATION.result"
+            ],
+            "severity": "CAUTION",
+            "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+            "interpretationConsequence": "Every result remains conditional on the supplied model.",
+            "stillMaterial": true
+          }
+        ],
+        "dependencies": [
+          "CURRENT_DECISION"
+        ],
+        "eligibleForExecution": true
+      }
+    },
+    "warnings": [
+      {
+        "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+        "affectedAnalyses": [
+          "CURRENT_DECISION",
+          "SAMPLE_INFORMATION"
+        ],
+        "resultPaths": [
+          "analysisOutcomes.CURRENT_DECISION.result",
+          "analysisOutcomes.SAMPLE_INFORMATION.result"
+        ],
+        "severity": "CAUTION",
+        "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+        "interpretationConsequence": "Every result remains conditional on the supplied model.",
+        "stillMaterial": true
+      }
+    ]
+  },
+  "requestedAnalyses": [
+    "CURRENT_DECISION",
+    "SAMPLE_INFORMATION"
+  ],
+  "analysisOutcomes": {
+    "CURRENT_DECISION": {
+      "analysis": "CURRENT_DECISION",
+      "executionState": "EXECUTED",
+      "result": {
+        "rule": "MAXIMIZE_EXPECTED_UTILITY",
+        "actionValues": [
+          {
+            "actionId": "RELEASE_LOT",
+            "expectedUtility": "8"
+          },
+          {
+            "actionId": "CONTINUE_HOLD",
+            "expectedUtility": "23.5"
+          },
+          {
+            "actionId": "VALIDATED_REPROCESS",
+            "expectedUtility": "17"
+          },
+          {
+            "actionId": "DESTROY_LOT",
+            "expectedUtility": "-16"
+          }
+        ],
+        "preferredActionIds": [
+          "CONTINUE_HOLD"
+        ],
+        "optimalExpectedUtility": "23.5",
+        "perfectInformation": {
+          "expectedUtilityWithPerfectInformation": "96",
+          "expectedUtilityWithoutInformation": "23.5",
+          "valueOfPerfectInformation": "72.5"
+        }
+      },
+      "warnings": [
+        {
+          "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+          "affectedAnalyses": [
+            "CURRENT_DECISION",
+            "SAMPLE_INFORMATION"
+          ],
+          "resultPaths": [
+            "analysisOutcomes.CURRENT_DECISION.result",
+            "analysisOutcomes.SAMPLE_INFORMATION.result"
+          ],
+          "severity": "CAUTION",
+          "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+          "interpretationConsequence": "Every result remains conditional on the supplied model.",
+          "stillMaterial": true
+        }
+      ],
+      "limits": [
+        "Every result is conditional on the supplied states, probabilities, observation models, utilities and costs; structural readiness does not establish that they describe the real situation.",
+        "Expected values rank the alternatives; their differences and ratios do not measure how much better one is than another unless utility is linear in the stated values.",
+        "A preferred action is the better decision under the supplied information; it does not guarantee a good outcome."
+      ]
+    },
+    "SAMPLE_INFORMATION": {
+      "analysis": "SAMPLE_INFORMATION",
+      "executionState": "EXECUTED",
+      "result": {
+        "rule": "MAXIMIZE_EXPECTED_UTILITY",
+        "costTreatment": "ADDITIVE_UTILITY_DECREMENT",
+        "baselineExperimentId": "CURRENT_INFORMATION",
+        "experimentResults": [
+          {
+            "experimentId": "CURRENT_INFORMATION",
+            "branches": [
+              {
+                "observationId": "NONE",
+                "predictiveProbability": "1",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.7"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.2"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.1"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "8"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "23.5"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "17"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-16"
+                  }
+                ],
+                "preferredActionIds": [
+                  "CONTINUE_HOLD"
+                ],
+                "optimalExpectedUtilityAfterCost": "23.5"
+              }
+            ],
+            "expectedUtilityAfterCost": "23.5",
+            "informationValue": {
+              "expectedUtilityWithoutInformation": "23.5",
+              "expectedUtilityWithInformationBeforeCost": "23.5",
+              "grossValueOfInformation": "0",
+              "acquisitionCost": "0",
+              "netValueOfInformation": "0"
+            }
+          },
+          {
+            "experimentId": "EXPANDED_RAPID_SAMPLING",
+            "branches": [
+              {
+                "observationId": "DETECTED",
+                "predictiveProbability": "0.162",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.04320987654320987654320987654320988"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.4320987654320987654320987654320988"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.52469135802469135802469135802469132"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "-226.2222222222222222222222222222222"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "28.19135802469135802469135802469136"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "69.02469135802469135802469135802469"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "62.66666666666666666666666666666666"
+                  }
+                ],
+                "preferredActionIds": [
+                  "VALIDATED_REPROCESS"
+                ],
+                "optimalExpectedUtilityAfterCost": "69.02469135802469135802469135802469"
+              },
+              {
+                "observationId": "NO_DETECTION",
+                "predictiveProbability": "0.778",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.8457583547557840616966580976863753"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.1413881748071979434447300771208226"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.0128534704370179948586118251928021"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "54.09768637532133676092544987146528"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "17.60668380462724935732647814910026"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "0.4601542416452442159383033419023186"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-38.06169665809768637532133676092545"
+                  }
+                ],
+                "preferredActionIds": [
+                  "RELEASE_LOT"
+                ],
+                "optimalExpectedUtilityAfterCost": "54.09768637532133676092544987146528"
+              },
+              {
+                "observationId": "INCONCLUSIVE",
+                "predictiveProbability": "0.06",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.5833333333333333333333333333333333"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.3333333333333333333333333333333333"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.0833333333333333333333333333333334"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "-24.00000000000000000000000000000001"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "20.58333333333333333333333333333334"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "24.33333333333333333333333333333333"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-8.999999999999999999999999999999998"
+                  }
+                ],
+                "preferredActionIds": [
+                  "VALIDATED_REPROCESS"
+                ],
+                "optimalExpectedUtilityAfterCost": "24.33333333333333333333333333333333"
+              }
+            ],
+            "expectedUtilityAfterCost": "54.72999999999999999999999999999999",
+            "informationValue": {
+              "expectedUtilityWithoutInformation": "23.5",
+              "expectedUtilityWithInformationBeforeCost": "58.72999999999999999999999999999999",
+              "grossValueOfInformation": "35.22999999999999999999999999999999",
+              "acquisitionCost": "4",
+              "netValueOfInformation": "31.22999999999999999999999999999999"
+            }
+          },
+          {
+            "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+            "branches": [
+              {
+                "observationId": "CONFIRMED",
+                "predictiveProbability": "0.2394",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.005847953216374269005847953216374269"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.5847953216374269005847953216374269"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.409356725146198830409356725146198831"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "-233.7894736842105263157894736842105"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "13.98830409356725146198830409356725"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "60.30409356725146198830409356725146"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "47.78947368421052631578947368421053"
+                  }
+                ],
+                "preferredActionIds": [
+                  "VALIDATED_REPROCESS"
+                ],
+                "optimalExpectedUtilityAfterCost": "60.30409356725146198830409356725146"
+              },
+              {
+                "observationId": "NOT_FOUND",
+                "predictiveProbability": "0.7286",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.9300027449903925336261323085369201"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.06862475981334065330771342300301949"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.00137249519626681306615426846006041"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "63.60856437002470491353280263519077"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "2.706835026077408729069448256931101"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "-21.37084820203129289047488333790831"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-60.9453746911885808399670601152896"
+                  }
+                ],
+                "preferredActionIds": [
+                  "RELEASE_LOT"
+                ],
+                "optimalExpectedUtilityAfterCost": "63.60856437002470491353280263519077"
+              },
+              {
+                "observationId": "INCONCLUSIVE",
+                "predictiveProbability": "0.032",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.65625"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.3125"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.03125"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "-11.75"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "5.59375"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "4.1875"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-32.375"
+                  }
+                ],
+                "preferredActionIds": [
+                  "CONTINUE_HOLD"
+                ],
+                "optimalExpectedUtilityAfterCost": "5.59375"
+              }
+            ],
+            "expectedUtilityAfterCost": "60.961",
+            "informationValue": {
+              "expectedUtilityWithoutInformation": "23.5",
+              "expectedUtilityWithInformationBeforeCost": "78.961",
+              "grossValueOfInformation": "55.461",
+              "acquisitionCost": "18",
+              "netValueOfInformation": "37.461"
+            }
+          },
+          {
+            "experimentId": "PROCESS_RECORD_INVESTIGATION",
+            "branches": [
+              {
+                "observationId": "CONTROL_FAILURE",
+                "predictiveProbability": "0.24",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.1458333333333333333333333333333333"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.5"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.3541666666666666666666666666666667"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "-174.6666666666666666666666666666667"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "27.3125"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "62.83333333333333333333333333333334"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "46.58333333333333333333333333333334"
+                  }
+                ],
+                "preferredActionIds": [
+                  "VALIDATED_REPROCESS"
+                ],
+                "optimalExpectedUtilityAfterCost": "62.83333333333333333333333333333334"
+              },
+              {
+                "observationId": "RECORDS_SUPPORT_CONTROL",
+                "predictiveProbability": "0.66",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.9015151515151515151515151515151515"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.09090909090909090909090909090909091"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.00757575757575757575757575757575759"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "70.33333333333333333333333333333333"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "18.02272727272727272727272727272728"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "-3.757575757575757575757575757575756"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-42.84848484848484848484848484848485"
+                  }
+                ],
+                "preferredActionIds": [
+                  "RELEASE_LOT"
+                ],
+                "optimalExpectedUtilityAfterCost": "70.33333333333333333333333333333333"
+              },
+              {
+                "observationId": "UNRESOLVED",
+                "predictiveProbability": "0.1",
+                "posterior": [
+                  {
+                    "stateId": "SAFE_OR_BELOW_CONCERN",
+                    "probability": "0.7"
+                  },
+                  {
+                    "stateId": "LOCALIZED_CONTAMINATION",
+                    "probability": "0.2"
+                  },
+                  {
+                    "stateId": "WIDESPREAD_CONTAMINATION",
+                    "probability": "0.1"
+                  }
+                ],
+                "normalizationCheck": {
+                  "probabilitySum": "1",
+                  "tolerance": "0.000000000000000000000000000001",
+                  "withinTolerance": true
+                },
+                "actionValues": [
+                  {
+                    "actionId": "RELEASE_LOT",
+                    "expectedUtility": "5"
+                  },
+                  {
+                    "actionId": "CONTINUE_HOLD",
+                    "expectedUtility": "20.5"
+                  },
+                  {
+                    "actionId": "VALIDATED_REPROCESS",
+                    "expectedUtility": "14"
+                  },
+                  {
+                    "actionId": "DESTROY_LOT",
+                    "expectedUtility": "-19"
+                  }
+                ],
+                "preferredActionIds": [
+                  "CONTINUE_HOLD"
+                ],
+                "optimalExpectedUtilityAfterCost": "20.5"
+              }
+            ],
+            "expectedUtilityAfterCost": "63.55",
+            "informationValue": {
+              "expectedUtilityWithoutInformation": "23.5",
+              "expectedUtilityWithInformationBeforeCost": "66.55",
+              "grossValueOfInformation": "43.05",
+              "acquisitionCost": "3",
+              "netValueOfInformation": "40.05"
+            }
+          }
+        ],
+        "preferredExperimentIds": [
+          "PROCESS_RECORD_INVESTIGATION"
+        ],
+        "optimalExpectedUtilityAfterCost": "63.55"
+      },
+      "warnings": [
+        {
+          "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+          "affectedAnalyses": [
+            "CURRENT_DECISION",
+            "SAMPLE_INFORMATION"
+          ],
+          "resultPaths": [
+            "analysisOutcomes.CURRENT_DECISION.result",
+            "analysisOutcomes.SAMPLE_INFORMATION.result"
+          ],
+          "severity": "CAUTION",
+          "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+          "interpretationConsequence": "Every result remains conditional on the supplied model.",
+          "stillMaterial": true
+        }
+      ],
+      "limits": [
+        "Every result is conditional on the supplied states, probabilities, observation models, utilities and costs; structural readiness does not establish that they describe the real situation.",
+        "Possible experiment results are hypothetical branches; none was treated as observed.",
+        "A positive net value of information does not authorize acquiring it.",
+        "Expected values rank the alternatives; their differences and ratios do not measure how much better one is than another unless utility is linear in the stated values."
+      ]
+    }
+  },
+  "summary": "With current information the preferred action is CONTINUE_HOLD; perfect information would be worth at most 72.5. After costs the preferred information option is PROCESS_RECORD_INVESTIGATION.",
+  "diagnostics": [],
+  "warnings": [
+    {
+      "code": "MODEL_ADEQUACY_NOT_ESTABLISHED",
+      "affectedAnalyses": [
+        "CURRENT_DECISION",
+        "SAMPLE_INFORMATION"
+      ],
+      "resultPaths": [
+        "analysisOutcomes.CURRENT_DECISION.result",
+        "analysisOutcomes.SAMPLE_INFORMATION.result"
+      ],
+      "severity": "CAUTION",
+      "cause": "Structural readiness does not verify that the supplied states, probabilities, observation model or preferences describe the real situation.",
+      "interpretationConsequence": "Every result remains conditional on the supplied model.",
+      "stillMaterial": true
+    }
+  ],
+  "trace": {
+    "proposalFingerprint": "sha256:07571dc884285bdf30e05d29d8dfb80a4d3d1d34ab50edcee8e20595c0a0615f",
+    "capabilityMeaningVersion": "1",
+    "knowledgeModel": {
+      "modelId": "fictional-held-spice-lot-salmonella-decision",
+      "version": "1",
+      "provenanceId": "synthetic-model"
+    },
+    "evidenceSnapshot": {
+      "snapshotId": "sp-204-after-initial-no-detection-1",
+      "temporalStance": "NO_EXPERIMENT_RESULT_OBSERVED",
+      "provenanceId": "synthetic-current-belief",
+      "description": "The prior is a synthetic summary after one initial no-detection screen. The lot remains under control, and no outcome from the three proposed investigations has been observed."
+    },
+    "currentDecisionTerms": [
+      {
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utility": "100",
+        "weightedUtility": "70"
+      },
+      {
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utility": "-160",
+        "weightedUtility": "-32"
+      },
+      {
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utility": "-300",
+        "weightedUtility": "-30"
+      },
+      {
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utility": "20",
+        "weightedUtility": "14"
+      },
+      {
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utility": "30",
+        "weightedUtility": "6"
+      },
+      {
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utility": "35",
+        "weightedUtility": "3.5"
+      },
+      {
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utility": "-10",
+        "weightedUtility": "-7"
+      },
+      {
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utility": "85",
+        "weightedUtility": "17"
+      },
+      {
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utility": "70",
+        "weightedUtility": "7"
+      },
+      {
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utility": "-50",
+        "weightedUtility": "-35"
+      },
+      {
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utility": "50",
+        "weightedUtility": "10"
+      },
+      {
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utility": "90",
+        "weightedUtility": "9"
+      }
+    ],
+    "perfectInformationTerms": [
+      {
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "bestActionIds": [
+          "RELEASE_LOT"
+        ],
+        "bestUtility": "100",
+        "weightedUtility": "70"
+      },
+      {
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "bestActionIds": [
+          "VALIDATED_REPROCESS"
+        ],
+        "bestUtility": "85",
+        "weightedUtility": "17"
+      },
+      {
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "bestActionIds": [
+          "DESTROY_LOT"
+        ],
+        "bestUtility": "90",
+        "weightedUtility": "9"
+      }
+    ],
+    "branchNormalizationTerms": [
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "1",
+        "unnormalizedWeight": "0.7"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "1",
+        "unnormalizedWeight": "0.2"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "1",
+        "unnormalizedWeight": "0.1"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.01",
+        "unnormalizedWeight": "0.007"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.35",
+        "unnormalizedWeight": "0.07"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.85",
+        "unnormalizedWeight": "0.085"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.94",
+        "unnormalizedWeight": "0.658"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.55",
+        "unnormalizedWeight": "0.11"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.1",
+        "unnormalizedWeight": "0.01"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.05",
+        "unnormalizedWeight": "0.035"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.1",
+        "unnormalizedWeight": "0.02"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.05",
+        "unnormalizedWeight": "0.005"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.002",
+        "unnormalizedWeight": "0.0014"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.7",
+        "unnormalizedWeight": "0.14"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.98",
+        "unnormalizedWeight": "0.098"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.968",
+        "unnormalizedWeight": "0.6776"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.25",
+        "unnormalizedWeight": "0.05"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.01",
+        "unnormalizedWeight": "0.001"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.03",
+        "unnormalizedWeight": "0.021"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.05",
+        "unnormalizedWeight": "0.01"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.01",
+        "unnormalizedWeight": "0.001"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.05",
+        "unnormalizedWeight": "0.035"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.6",
+        "unnormalizedWeight": "0.12"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.85",
+        "unnormalizedWeight": "0.085"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.85",
+        "unnormalizedWeight": "0.595"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.3",
+        "unnormalizedWeight": "0.06"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.05",
+        "unnormalizedWeight": "0.005"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "priorProbability": "0.7",
+        "likelihood": "0.1",
+        "unnormalizedWeight": "0.07"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "priorProbability": "0.2",
+        "likelihood": "0.1",
+        "unnormalizedWeight": "0.02"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "priorProbability": "0.1",
+        "likelihood": "0.1",
+        "unnormalizedWeight": "0.01"
+      }
+    ],
+    "branchDecisionTerms": [
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "100",
+        "weightedUtilityAfterCost": "70"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "-160",
+        "weightedUtilityAfterCost": "-32"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "-300",
+        "weightedUtilityAfterCost": "-30"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "20",
+        "weightedUtilityAfterCost": "14"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "30",
+        "weightedUtilityAfterCost": "6"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "35",
+        "weightedUtilityAfterCost": "3.5"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "-10",
+        "weightedUtilityAfterCost": "-7"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "85",
+        "weightedUtilityAfterCost": "17"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "70",
+        "weightedUtilityAfterCost": "7"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "-50",
+        "weightedUtilityAfterCost": "-35"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "50",
+        "weightedUtilityAfterCost": "10"
+      },
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "0",
+        "utilityAfterCost": "90",
+        "weightedUtilityAfterCost": "9"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.04320987654320987654320987654320988",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "96",
+        "weightedUtilityAfterCost": "4.148148148148148148148148148148148"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.4320987654320987654320987654320988",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-164",
+        "weightedUtilityAfterCost": "-70.8641975308641975308641975308642"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.52469135802469135802469135802469132",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-304",
+        "weightedUtilityAfterCost": "-159.5061728395061728395061728395062"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.04320987654320987654320987654320988",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "16",
+        "weightedUtilityAfterCost": "0.6913580246913580246913580246913581"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.4320987654320987654320987654320988",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "26",
+        "weightedUtilityAfterCost": "11.23456790123456790123456790123457"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.52469135802469135802469135802469132",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "31",
+        "weightedUtilityAfterCost": "16.26543209876543209876543209876543"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.04320987654320987654320987654320988",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-14",
+        "weightedUtilityAfterCost": "-0.6049382716049382716049382716049383"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.4320987654320987654320987654320988",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "81",
+        "weightedUtilityAfterCost": "35"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.52469135802469135802469135802469132",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "66",
+        "weightedUtilityAfterCost": "34.62962962962962962962962962962963"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.04320987654320987654320987654320988",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-54",
+        "weightedUtilityAfterCost": "-2.333333333333333333333333333333334"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.4320987654320987654320987654320988",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "46",
+        "weightedUtilityAfterCost": "19.87654320987654320987654320987654"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.52469135802469135802469135802469132",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "86",
+        "weightedUtilityAfterCost": "45.12345679012345679012345679012345"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.8457583547557840616966580976863753",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "96",
+        "weightedUtilityAfterCost": "81.19280205655526992287917737789203"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.1413881748071979434447300771208226",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-164",
+        "weightedUtilityAfterCost": "-23.18766066838046272493573264781491"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0128534704370179948586118251928021",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-304",
+        "weightedUtilityAfterCost": "-3.907455012853470437017994858611838"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.8457583547557840616966580976863753",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "16",
+        "weightedUtilityAfterCost": "13.532133676092544987146529562982"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.1413881748071979434447300771208226",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "26",
+        "weightedUtilityAfterCost": "3.676092544987146529562982005141388"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0128534704370179948586118251928021",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "31",
+        "weightedUtilityAfterCost": "0.3984575835475578406169665809768651"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.8457583547557840616966580976863753",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-14",
+        "weightedUtilityAfterCost": "-11.84061696658097686375321336760925"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.1413881748071979434447300771208226",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "81",
+        "weightedUtilityAfterCost": "11.45244215938303341902313624678663"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0128534704370179948586118251928021",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "66",
+        "weightedUtilityAfterCost": "0.8483290488431876606683804627249386"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.8457583547557840616966580976863753",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-54",
+        "weightedUtilityAfterCost": "-45.67095115681233933161953727506427"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.1413881748071979434447300771208226",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "46",
+        "weightedUtilityAfterCost": "6.50385604113110539845758354755784"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0128534704370179948586118251928021",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "86",
+        "weightedUtilityAfterCost": "1.105398457583547557840616966580981"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.5833333333333333333333333333333333",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "96",
+        "weightedUtilityAfterCost": "56"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3333333333333333333333333333333333",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-164",
+        "weightedUtilityAfterCost": "-54.66666666666666666666666666666666"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0833333333333333333333333333333334",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-304",
+        "weightedUtilityAfterCost": "-25.33333333333333333333333333333335"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.5833333333333333333333333333333333",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "16",
+        "weightedUtilityAfterCost": "9.333333333333333333333333333333333"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3333333333333333333333333333333333",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "26",
+        "weightedUtilityAfterCost": "8.666666666666666666666666666666666"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0833333333333333333333333333333334",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "31",
+        "weightedUtilityAfterCost": "2.583333333333333333333333333333335"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.5833333333333333333333333333333333",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-14",
+        "weightedUtilityAfterCost": "-8.166666666666666666666666666666666"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3333333333333333333333333333333333",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "81",
+        "weightedUtilityAfterCost": "27"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0833333333333333333333333333333334",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "66",
+        "weightedUtilityAfterCost": "5.500000000000000000000000000000004"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.5833333333333333333333333333333333",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "-54",
+        "weightedUtilityAfterCost": "-31.5"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3333333333333333333333333333333333",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "46",
+        "weightedUtilityAfterCost": "15.33333333333333333333333333333333"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.0833333333333333333333333333333334",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "4",
+        "utilityAfterCost": "86",
+        "weightedUtilityAfterCost": "7.166666666666666666666666666666672"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.005847953216374269005847953216374269",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "82",
+        "weightedUtilityAfterCost": "0.4795321637426900584795321637426901"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5847953216374269005847953216374269",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-178",
+        "weightedUtilityAfterCost": "-104.093567251461988304093567251462"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.409356725146198830409356725146198831",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-318",
+        "weightedUtilityAfterCost": "-130.1754385964912280701754385964912"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.005847953216374269005847953216374269",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "2",
+        "weightedUtilityAfterCost": "0.01169590643274853801169590643274854"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5847953216374269005847953216374269",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "12",
+        "weightedUtilityAfterCost": "7.017543859649122807017543859649123"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.409356725146198830409356725146198831",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "17",
+        "weightedUtilityAfterCost": "6.95906432748538011695906432748538"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.005847953216374269005847953216374269",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-28",
+        "weightedUtilityAfterCost": "-0.1637426900584795321637426900584795"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5847953216374269005847953216374269",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "67",
+        "weightedUtilityAfterCost": "39.1812865497076023391812865497076"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.409356725146198830409356725146198831",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "52",
+        "weightedUtilityAfterCost": "21.28654970760233918128654970760234"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.005847953216374269005847953216374269",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-68",
+        "weightedUtilityAfterCost": "-0.3976608187134502923976608187134503"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5847953216374269005847953216374269",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "32",
+        "weightedUtilityAfterCost": "18.71345029239766081871345029239766"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.409356725146198830409356725146198831",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "72",
+        "weightedUtilityAfterCost": "29.47368421052631578947368421052632"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9300027449903925336261323085369201",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "82",
+        "weightedUtilityAfterCost": "76.26022508921218775734284930002745"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.06862475981334065330771342300301949",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-178",
+        "weightedUtilityAfterCost": "-12.21520724677463628877298929453747"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00137249519626681306615426846006041",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-318",
+        "weightedUtilityAfterCost": "-0.4364534724128465550370573702992104"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9300027449903925336261323085369201",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "2",
+        "weightedUtilityAfterCost": "1.86000548998078506725226461707384"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.06862475981334065330771342300301949",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "12",
+        "weightedUtilityAfterCost": "0.8234971177600878396925610760362339"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00137249519626681306615426846006041",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "17",
+        "weightedUtilityAfterCost": "0.02333241833653582212462256382102697"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9300027449903925336261323085369201",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-28",
+        "weightedUtilityAfterCost": "-26.04007685973099094153170463903376"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.06862475981334065330771342300301949",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "67",
+        "weightedUtilityAfterCost": "4.597858907493823771616799341202306"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00137249519626681306615426846006041",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "52",
+        "weightedUtilityAfterCost": "0.07136975020587427944002195992314132"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9300027449903925336261323085369201",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-68",
+        "weightedUtilityAfterCost": "-63.24018665934669228657699698051057"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.06862475981334065330771342300301949",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "32",
+        "weightedUtilityAfterCost": "2.195992314026900905846829536096624"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00137249519626681306615426846006041",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "72",
+        "weightedUtilityAfterCost": "0.09881965413121054076310732912434952"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.65625",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "82",
+        "weightedUtilityAfterCost": "53.8125"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3125",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-178",
+        "weightedUtilityAfterCost": "-55.625"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.03125",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-318",
+        "weightedUtilityAfterCost": "-9.9375"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.65625",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "2",
+        "weightedUtilityAfterCost": "1.3125"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3125",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "12",
+        "weightedUtilityAfterCost": "3.75"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.03125",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "17",
+        "weightedUtilityAfterCost": "0.53125"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.65625",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-28",
+        "weightedUtilityAfterCost": "-18.375"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3125",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "67",
+        "weightedUtilityAfterCost": "20.9375"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.03125",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "52",
+        "weightedUtilityAfterCost": "1.625"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.65625",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "-68",
+        "weightedUtilityAfterCost": "-44.625"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.3125",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "32",
+        "weightedUtilityAfterCost": "10"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.03125",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "18",
+        "utilityAfterCost": "72",
+        "weightedUtilityAfterCost": "2.25"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.1458333333333333333333333333333333",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "97",
+        "weightedUtilityAfterCost": "14.14583333333333333333333333333333"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-163",
+        "weightedUtilityAfterCost": "-81.5"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.3541666666666666666666666666666667",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-303",
+        "weightedUtilityAfterCost": "-107.3125"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.1458333333333333333333333333333333",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "17",
+        "weightedUtilityAfterCost": "2.479166666666666666666666666666666"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "27",
+        "weightedUtilityAfterCost": "13.5"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.3541666666666666666666666666666667",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "32",
+        "weightedUtilityAfterCost": "11.33333333333333333333333333333333"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.1458333333333333333333333333333333",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-13",
+        "weightedUtilityAfterCost": "-1.895833333333333333333333333333333"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "82",
+        "weightedUtilityAfterCost": "41"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.3541666666666666666666666666666667",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "67",
+        "weightedUtilityAfterCost": "23.72916666666666666666666666666667"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.1458333333333333333333333333333333",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-53",
+        "weightedUtilityAfterCost": "-7.729166666666666666666666666666665"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.5",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "47",
+        "weightedUtilityAfterCost": "23.5"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.3541666666666666666666666666666667",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "87",
+        "weightedUtilityAfterCost": "30.8125"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9015151515151515151515151515151515",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "97",
+        "weightedUtilityAfterCost": "87.4469696969696969696969696969697"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.09090909090909090909090909090909091",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-163",
+        "weightedUtilityAfterCost": "-14.81818181818181818181818181818182"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00757575757575757575757575757575759",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-303",
+        "weightedUtilityAfterCost": "-2.29545454545454545454545454545455"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9015151515151515151515151515151515",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "17",
+        "weightedUtilityAfterCost": "15.32575757575757575757575757575758"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.09090909090909090909090909090909091",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "27",
+        "weightedUtilityAfterCost": "2.454545454545454545454545454545455"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00757575757575757575757575757575759",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "32",
+        "weightedUtilityAfterCost": "0.2424242424242424242424242424242429"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9015151515151515151515151515151515",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-13",
+        "weightedUtilityAfterCost": "-11.71969696969696969696969696969697"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.09090909090909090909090909090909091",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "82",
+        "weightedUtilityAfterCost": "7.454545454545454545454545454545455"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00757575757575757575757575757575759",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "67",
+        "weightedUtilityAfterCost": "0.5075757575757575757575757575757585"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.9015151515151515151515151515151515",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-53",
+        "weightedUtilityAfterCost": "-47.78030303030303030303030303030303"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.09090909090909090909090909090909091",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "47",
+        "weightedUtilityAfterCost": "4.272727272727272727272727272727273"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.00757575757575757575757575757575759",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "87",
+        "weightedUtilityAfterCost": "0.6590909090909090909090909090909103"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "RELEASE_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "100",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "97",
+        "weightedUtilityAfterCost": "67.9"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "RELEASE_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "-160",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-163",
+        "weightedUtilityAfterCost": "-32.6"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "RELEASE_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "RELEASE_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "-300",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-303",
+        "weightedUtilityAfterCost": "-30.3"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "CONTINUE_HOLD_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "20",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "17",
+        "weightedUtilityAfterCost": "11.9"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "CONTINUE_HOLD_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "30",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "27",
+        "weightedUtilityAfterCost": "5.4"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "CONTINUE_HOLD",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "CONTINUE_HOLD_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "35",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "32",
+        "weightedUtilityAfterCost": "3.2"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "VALIDATED_REPROCESS_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-10",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-13",
+        "weightedUtilityAfterCost": "-9.1"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "VALIDATED_REPROCESS_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "85",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "82",
+        "weightedUtilityAfterCost": "16.4"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "VALIDATED_REPROCESS",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "VALIDATED_REPROCESS_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "70",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "67",
+        "weightedUtilityAfterCost": "6.7"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "SAFE_OR_BELOW_CONCERN",
+        "posteriorProbability": "0.7",
+        "consequenceId": "DESTROY_LOT_SAFE_OR_BELOW_CONCERN",
+        "utilityBeforeCost": "-50",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "-53",
+        "weightedUtilityAfterCost": "-37.1"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "LOCALIZED_CONTAMINATION",
+        "posteriorProbability": "0.2",
+        "consequenceId": "DESTROY_LOT_LOCALIZED_CONTAMINATION",
+        "utilityBeforeCost": "50",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "47",
+        "weightedUtilityAfterCost": "9.4"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "actionId": "DESTROY_LOT",
+        "stateId": "WIDESPREAD_CONTAMINATION",
+        "posteriorProbability": "0.1",
+        "consequenceId": "DESTROY_LOT_WIDESPREAD_CONTAMINATION",
+        "utilityBeforeCost": "90",
+        "acquisitionCost": "3",
+        "utilityAfterCost": "87",
+        "weightedUtilityAfterCost": "8.7"
+      }
+    ],
+    "experimentExpectationTerms": [
+      {
+        "experimentId": "CURRENT_INFORMATION",
+        "observationId": "NONE",
+        "predictiveProbability": "1",
+        "branchOptimalExpectedUtilityAfterCost": "23.5",
+        "weightedBranchValue": "23.5"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "DETECTED",
+        "predictiveProbability": "0.162",
+        "branchOptimalExpectedUtilityAfterCost": "69.02469135802469135802469135802469",
+        "weightedBranchValue": "11.182"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "NO_DETECTION",
+        "predictiveProbability": "0.778",
+        "branchOptimalExpectedUtilityAfterCost": "54.09768637532133676092544987146528",
+        "weightedBranchValue": "42.08799999999999999999999999999999"
+      },
+      {
+        "experimentId": "EXPANDED_RAPID_SAMPLING",
+        "observationId": "INCONCLUSIVE",
+        "predictiveProbability": "0.06",
+        "branchOptimalExpectedUtilityAfterCost": "24.33333333333333333333333333333333",
+        "weightedBranchValue": "1.46"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "CONFIRMED",
+        "predictiveProbability": "0.2394",
+        "branchOptimalExpectedUtilityAfterCost": "60.30409356725146198830409356725146",
+        "weightedBranchValue": "14.4368"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "NOT_FOUND",
+        "predictiveProbability": "0.7286",
+        "branchOptimalExpectedUtilityAfterCost": "63.60856437002470491353280263519077",
+        "weightedBranchValue": "46.3452"
+      },
+      {
+        "experimentId": "CONFIRMATORY_CULTURE_PLAN",
+        "observationId": "INCONCLUSIVE",
+        "predictiveProbability": "0.032",
+        "branchOptimalExpectedUtilityAfterCost": "5.59375",
+        "weightedBranchValue": "0.179"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "CONTROL_FAILURE",
+        "predictiveProbability": "0.24",
+        "branchOptimalExpectedUtilityAfterCost": "62.83333333333333333333333333333334",
+        "weightedBranchValue": "15.08"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "RECORDS_SUPPORT_CONTROL",
+        "predictiveProbability": "0.66",
+        "branchOptimalExpectedUtilityAfterCost": "70.33333333333333333333333333333333",
+        "weightedBranchValue": "46.42"
+      },
+      {
+        "experimentId": "PROCESS_RECORD_INVESTIGATION",
+        "observationId": "UNRESOLVED",
+        "predictiveProbability": "0.1",
+        "branchOptimalExpectedUtilityAfterCost": "20.5",
+        "weightedBranchValue": "2.05"
+      }
+    ],
+    "provenanceRecords": [
+      {
+        "id": "fda-haccp-context",
+        "origin": "SOURCE_STATED",
+        "sourceLabel": "FDA HACCP Principles and Application Guidelines",
+        "locator": "https://www.fda.gov/food/hazard-analysis-critical-control-point-haccp/haccp-principles-application-guidelines",
+        "notes": "Supports hazard analysis, preventive controls, corrective action, verification, and record review; supplies none of this fixture's numbers."
+      },
+      {
+        "id": "fda-salmonella-testing-context",
+        "origin": "SOURCE_STATED",
+        "sourceLabel": "FDA guidance for industry on Salmonella testing",
+        "locator": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-testing-salmonella-species-human-foods-and-direct-human-contact-animal-foods",
+        "notes": "Supports maintaining control while testing and not invalidating a confirmed positive merely because later samples are negative; supplies none of this fixture's numbers."
+      },
+      {
+        "id": "fda-bam-context",
+        "origin": "SOURCE_STATED",
+        "sourceLabel": "FDA Bacteriological Analytical Manual",
+        "locator": "https://www.fda.gov/food/laboratory-methods-food/bacteriological-analytical-manual-bam",
+        "notes": "Provides official laboratory-method context only; this fixture does not claim to implement a BAM sampling plan or method."
+      },
+      {
+        "id": "synthetic-model",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional SP-204 lot model",
+        "notes": "Fictional educational model; no real food, facility, lot, result, firm, or consumer exposure."
+      },
+      {
+        "id": "synthetic-current-belief",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional posterior after an initial no-detection screen",
+        "notes": "Synthetic probabilities; the initial no-detection does not establish that contamination is absent."
+      },
+      {
+        "id": "synthetic-preferences",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional lot-disposition utilities",
+        "notes": "Synthetic utility points, not illness estimates, money, regulatory thresholds, or elicited preferences."
+      },
+      {
+        "id": "synthetic-expanded-rapid-sampling",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional Collect an expanded stratified sample and run the rapid screen observation model",
+        "notes": "Synthetic likelihoods and additive utility cost; not test performance, a validated sampling plan, or regulatory guidance."
+      },
+      {
+        "id": "synthetic-confirmatory-culture-plan",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional Collect a larger stratified sample and perform confirmatory culture observation model",
+        "notes": "Synthetic likelihoods and additive utility cost; not test performance, a validated sampling plan, or regulatory guidance."
+      },
+      {
+        "id": "synthetic-process-record-investigation",
+        "origin": "USER_SUPPLIED",
+        "sourceLabel": "BKM Cookbook fictional Investigate preventive-control, deviation, supplier, and traceability records observation model",
+        "notes": "Synthetic likelihoods and additive utility cost; not test performance, a validated sampling plan, or regulatory guidance."
+      }
+    ],
+    "numericalPolicy": {
+      "arithmeticRegime": "DECIMAL",
+      "precision": 34,
+      "roundingMode": "HALF_EVEN",
+      "probabilityTolerance": "0.000000000000000000000000000001"
+    },
+    "warningCodes": [
+      "MODEL_ADEQUACY_NOT_ESTABLISHED"
+    ],
+    "limits": [
+      "No evidence was admitted and no action was authorized.",
+      "Every result is conditional on the supplied states, probabilities, observation models, utilities and costs; structural readiness does not establish that they describe the real situation.",
+      "Expected values rank the alternatives; their differences and ratios do not measure how much better one is than another unless utility is linear in the stated values.",
+      "A preferred action is the better decision under the supplied information; it does not guarantee a good outcome.",
+      "Possible experiment results are hypothetical branches; none was treated as observed.",
+      "A positive net value of information does not authorize acquiring it."
+    ]
+  },
+  "limits": [
+    "No evidence was admitted and no action was authorized.",
+    "Every result is conditional on the supplied states, probabilities, observation models, utilities and costs; structural readiness does not establish that they describe the real situation.",
+    "Expected values rank the alternatives; their differences and ratios do not measure how much better one is than another unless utility is linear in the stated values.",
+    "A preferred action is the better decision under the supplied information; it does not guarantee a good outcome.",
+    "Possible experiment results are hypothetical branches; none was treated as observed.",
+    "A positive net value of information does not authorize acquiring it."
+  ],
+  "authorityBoundary": {
+    "evidenceAdmitted": false,
+    "actionAuthorized": false,
+    "modelAdequacyEstablished": false
+  }
+}
