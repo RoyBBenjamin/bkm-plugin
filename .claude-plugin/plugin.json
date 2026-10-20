@@ -1,6 +1,6 @@
 {
   "name": "bkm",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Benjamin Knowledge Models: checked probability, statistics and decision calculations from Benjamin and Cornell's Probability, Statistics, and Decision for Civil Engineers, as an MCP service with a skill that teaches an agent to use it honestly.",
   "author": {
     "name": "Roy Benjamin",
@@ -18,5 +18,6 @@
     "mcp",
     "benjamin-cornell"
   ],
-  "license": "LicenseRef-BKM-Proprietary"
+  "license": "LicenseRef-BKM-Proprietary",
+  "privacyPolicyUrl": "https://sidekick.benjaminknowledgemodels.com/privacy"
 }
